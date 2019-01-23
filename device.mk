@@ -167,6 +167,7 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.14.vendor \
     vendor.display.config@1.15.vendor \
     vendor.lineage.livedisplay@2.0-service-sdm \
+    vendor.lineage.livedisplay@2.0-service.picasso \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer-service \
     vendor.qti.hardware.display.mapper@4.0.vendor
