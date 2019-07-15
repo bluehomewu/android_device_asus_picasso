@@ -7,6 +7,7 @@ ro.opengles.version=196610
 # Audio
 persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
 ro.audio.monitorRotation=true
+vendor.audio.feature.multi_voice_session.enable=true
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
