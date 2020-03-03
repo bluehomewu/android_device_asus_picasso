@@ -145,9 +145,6 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss.visibility_control@1.0.vendor \
     android.hardware.gnss@2.1.vendor
 
-# GSI
-$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
-
 # HIDL
 PRODUCT_PACKAGES += \
     libhidltransport.vendor \
