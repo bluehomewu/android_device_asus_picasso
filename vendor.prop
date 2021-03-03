@@ -23,6 +23,10 @@ vendor.camera.apk.usingname=org.lineageos.snap
 vendor.camera.cam5.crop_region=2:0,0,4032,3024;3:728,546,3304,2478
 vendor.camera.expTimeMax=0
 
+# Chipset
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=SM8350
+
 # DPM
 persist.vendor.dpmhalservice.enable=1
 
