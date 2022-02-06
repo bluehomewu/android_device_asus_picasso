@@ -197,3 +197,12 @@ service battery_status /vendor/bin/sh /vendor/bin/gaugeIC_status
     disabled
     oneshot
     seclabel u:r:vendor_qti_init_shell:s0
+
+service vendor.sensors-hal-2-1-multihal /vendor/bin/hw/android.hardware.sensors@2.1-service.multihal
+    override
+    class hal
+    user system
+    group system wakelock context_hub input
+    writepid /dev/cpuset/system-background/tasks
+    capabilities BLOCK_SUSPEND
+    rlimit rtprio 10 10
