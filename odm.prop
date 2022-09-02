@@ -6,3 +6,6 @@ vendor.audio.spkr_prot.tx.sampling_rate=0
 
 # QC Value Addons
 ro.vendor.qti.va_odm.support=1
+
+# USB
+vendor.usb.product_string=Smartphone for Snapdragon Insiders
