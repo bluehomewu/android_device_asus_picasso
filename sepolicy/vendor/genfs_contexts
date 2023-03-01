@@ -12,6 +12,9 @@ genfscon sysfs /class/asuslib/asus_get_batt_temp   u:object_r:vendor_sysfs_batte
 genfscon sysfs /class/asuslib/asus_get_fw_version  u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /class/qcom-battery                 u:object_r:vendor_sysfs_battery_supply:s0
 
+# Charging
+genfscon sysfs /class/asuslib/charging_suspend_en  u:object_r:vendor_sysfs_battery_supply:s0
+
 # Display
 genfscon sysfs /class/drm/hdr_mode       u:object_r:vendor_sysfs_graphics:s0
 genfscon proc  /driver/dclick            u:object_r:vendor_proc_graphics:s0
