@@ -78,6 +78,10 @@ on property:persist.vendor.zram.enable=${persist.vendor.zram.enable}
     setprop vendor.zram.disksize ${persist.vendor.zram.disksize}
 
 on property:sys.boot_completed=1
+    # cpuset parameters
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
+
     # IRQ Tuning
     # IRQ 243: msm_drm
     # IRQ 240: kgsl_3d0_irq
