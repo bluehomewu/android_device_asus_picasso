@@ -297,7 +297,7 @@
     <string name="config_mms_user_agent" translatable="false">ZS675KW</string>
 
     <!-- MMS user agent profile URL -->
-    <string name="config_mms_user_agent_profile_url" translatable="false">http://uaprofile.asus.com/uaprof/ASUS-ZS675KW.xml</string>
+    <string name="config_mms_user_agent_profile_url" translatable="false">https://uaprofile.asus.com/uaprof/ASUS-ZS675KW.xml</string>
 
     <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
          when registering authenticators with BiometricService. Format must be ID:Modality:Strength,
