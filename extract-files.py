@@ -56,6 +56,7 @@ blob_fixups: blob_fixups_user_type = {
 module = ExtractUtilsModule(
     'picasso',
     'asus',
+    add_firmware_proprietary_file=True,
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
