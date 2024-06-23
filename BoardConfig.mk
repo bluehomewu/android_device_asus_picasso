@@ -10,8 +10,6 @@ DEVICE_PATH := device/asus/picasso
 
 include build/make/target/board/BoardConfigMainlineCommon.mk
 
-BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
-
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS := \
