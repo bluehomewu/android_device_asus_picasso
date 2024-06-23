@@ -1,3 +1,8 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
 soong_namespace {
     imports: ["hardware/qcom-caf/bootctrl"],
 }
@@ -16,4 +21,11 @@ prebuilt_etc {
     installable: false,
     overrides: ["libreference-ril"],
     soc_specific: true,
+}
+
+install_symlink {
+    name: "firmware_wlan_mac.bin_symlink",
+    vendor: true,
+    installed_location: "firmware/wlan/qca_cld/wlan_mac.bin",
+    symlink_target: "/vendor/factory/wlan_mac.bin",
 }
