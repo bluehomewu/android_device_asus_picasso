@@ -334,6 +334,33 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     libprotobuf-cpp-lite-3.9.1-vendorcompat
 
+# RFS
+PRODUCT_PACKAGES += \
+    rfs_msm_adsp_hlos_symlink \
+    rfs_msm_adsp_ramdumps_symlink \
+    rfs_msm_adsp_readonly_firmware_symlink \
+    rfs_msm_adsp_readonly_vendor_firmware_symlink \
+    rfs_msm_adsp_readwrite_symlink \
+    rfs_msm_adsp_shared_symlink \
+    rfs_msm_cdsp_hlos_symlink \
+    rfs_msm_cdsp_ramdumps_symlink \
+    rfs_msm_cdsp_readonly_firmware_symlink \
+    rfs_msm_cdsp_readonly_vendor_firmware_symlink \
+    rfs_msm_cdsp_readwrite_symlink \
+    rfs_msm_cdsp_shared_symlink \
+    rfs_msm_mpss_hlos_symlink \
+    rfs_msm_mpss_ramdumps_symlink \
+    rfs_msm_mpss_readonly_firmware_symlink \
+    rfs_msm_mpss_readonly_vendor_firmware_symlink \
+    rfs_msm_mpss_readwrite_symlink \
+    rfs_msm_mpss_shared_symlink \
+    rfs_msm_slpi_hlos_symlink \
+    rfs_msm_slpi_ramdumps_symlink \
+    rfs_msm_slpi_readonly_firmware_symlink \
+    rfs_msm_slpi_readonly_vendor_firmware_symlink \
+    rfs_msm_slpi_readwrite_symlink \
+    rfs_msm_slpi_shared_symlink
+
 # Security
 BOOT_SECURITY_PATCH := 2021-11-05
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
