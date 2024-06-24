@@ -436,7 +436,16 @@ TARGET_BOARD_PLATFORM := lahaina
 TARGET_HAS_DIAG_ROUTER := true
 TARGET_KERNEL_VERSION := 5.4
 
-$(call inherit-product, vendor/qcom/opensource/usb/vendor_product.mk)
+# Include directly so the Lahaina default can be replaced without
+# duplicating USB properties.
+include vendor/qcom/opensource/usb/vendor_product.mk
+
+PRODUCT_PROPERTY_OVERRIDES := $(filter-out vendor.usb.use_gadget_hal=%,$(PRODUCT_PROPERTY_OVERRIDES))
+PRODUCT_PROPERTY_OVERRIDES += vendor.usb.use_gadget_hal=1
+
+PRODUCT_PACKAGES += \
+    android.hardware.usb.gadget-service.qti \
+    usb_compositions.conf
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
