@@ -13,6 +13,10 @@ on post-fs-data
     mount_all /vendor/etc/fstab.battery
     restorecon_recursive /batinfo
 
+    # NFC
+    mkdir /data/vendor/nfc 0660 nfc nfc
+    chown nfc nfc /dev/nq-nci
+
     # Sensors
     write /sys/class/sensors/psensor/load_cal 1
     write /sys/class/sensors/psensor_2nd/load_cal 1
