@@ -2,9 +2,6 @@
 ## are from Smartphone for Snapdragon Insiders (18.1055.2307.269-0). OTAs to extract from can be found here:
 ## https://www.asus.com/Mobile/Phones/ASUS/Smartphone-for-Snapdragon-Insiders/HelpDesk_BIOS/
 
-# Current blobs with ELF checks disabled:
-# libcne, libwqe, lowi-server, mutualex depend on libwpa_client, which is a gnu makefile target
-
 # ADSPRPC
 vendor/bin/adsprpcd
 vendor/bin/cdsprpcd
@@ -300,7 +297,7 @@ vendor/app/CACertService/CACertService.apk
 vendor/app/CneApp/CneApp.apk
 vendor/app/IWlanService/IWlanService.apk
 vendor/bin/cnd
-vendor/bin/mutualex;DISABLE_CHECKELF
+vendor/bin/mutualex
 vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml
 vendor/etc/cne/wqeclient/ATT/ATT_profile2.xml
 vendor/etc/cne/wqeclient/ATT/ATT_profile3.xml
@@ -332,13 +329,13 @@ vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
 vendor/etc/init/cnd.rc
 vendor/etc/init/mutualex.rc
 vendor/lib64/libcacertclient.so
-vendor/lib64/libcne.so;DISABLE_CHECKELF
+vendor/lib64/libcne.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
 vendor/lib64/libcneqmiutils.so
 vendor/lib64/libjnihelper.so
 vendor/lib64/libwms.so
-vendor/lib64/libwqe.so;DISABLE_CHECKELF
+vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 vendor/lib64/vendor.qti.data.factory@2.0.so
 vendor/lib64/vendor.qti.data.factory@2.1.so
@@ -1077,7 +1074,7 @@ system_ext/lib64/vendor.qti.gnss@4.0.so
 system_ext/priv-app/com.qualcomm.location/com.qualcomm.location.apk
 vendor/bin/garden_app
 vendor/bin/loc_launcher
-vendor/bin/lowi-server;DISABLE_CHECKELF
+vendor/bin/lowi-server
 vendor/bin/mlid
 vendor/bin/slim_daemon
 vendor/bin/xtra-daemon
