@@ -1228,10 +1228,6 @@ vendor/etc/media_lahaina/video_system_specs.json
 vendor/etc/media/video_system_specs.json
 vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy
 vendor/etc/vintf/manifest/c2_manifest_vendor.xml|0e532bf1c7d6a0ee2e7e03a9cc3283a5bffc7f8e
-vendor/etc/media_codecs_lahaina.xml
-vendor/etc/media_codecs_performance_lahaina.xml
-vendor/etc/media_codecs_performance.xml
-vendor/etc/media_codecs.xml
 vendor/etc/media_profiles_lahaina.xml
 vendor/etc/media_profiles_V1_0.xml|1489f024fbc7c6cd1a0f7ebb7fb32a5ae2f63f4e
 vendor/etc/media_profiles_vendor.xml
