@@ -1,0 +1,5 @@
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+
+# eBPF
+ro.bpf.kver_override=5.10.239
