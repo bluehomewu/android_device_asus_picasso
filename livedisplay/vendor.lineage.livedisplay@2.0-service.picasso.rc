@@ -1,7 +1,0 @@
-on boot
-    chown system system /proc/globalHbm
-
-service vendor.livedisplay-hal-2-0-picasso /vendor/bin/hw/vendor.lineage.livedisplay@2.0-service.picasso
-    class hal
-    user system
-    group system

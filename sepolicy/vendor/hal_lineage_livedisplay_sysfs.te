@@ -1,0 +1,2 @@
+# SE_PATH=/proc/globalHbm uses the device's vendor_proc_graphics label.
+allow hal_lineage_livedisplay_sysfs vendor_proc_graphics:file { getattr open read write };
