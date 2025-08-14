@@ -170,7 +170,7 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.14.vendor \
     vendor.display.config@1.15.vendor \
     vendor.lineage.livedisplay-service.sdm \
-    vendor.lineage.livedisplay@2.0-service.picasso \
+    vendor.lineage.livedisplay-service.sysfs \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer-service \
     vendor.qti.hardware.display.composer-service.rc \
@@ -178,6 +178,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@4.0.vendor
 
 $(call soong_config_set,livedisplay_sdm,enable_dm,false)
+$(call soong_config_set,livedisplay_sysfs,enable_se,true)
+$(call soong_config_set,livedisplay_sysfs,se_path,/proc/globalHbm)
 
 PRODUCT_COPY_FILES += \
     vendor/asus/picasso/proprietary/vendor/firmware/iris6_ccf1.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/iris6_ccf1b.fw \
