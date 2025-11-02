@@ -4,7 +4,7 @@ soong_namespace {
 
 prebuilt_etc_xml {
     name: "vendor.qti.data.factory@2.0-manifest",
-    src: "hidl/vendor.qti.data.factory@2.0.xml",
+    src: "vintf/vendor.qti.data.factory@2.0.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     soc_specific: true,
