@@ -16,7 +16,7 @@ cc_library {
         "-Wall",
         "-Werror",
     ] + select(soong_config_variable("QTI_GPT_UTILS", "USE_BSG_FRAMEWORK"), {
-        "false": [],
+        false: [],
         default: ["-D_BSG_FRAMEWORK_KERNEL_HEADERS"],
     }),
     srcs: [
