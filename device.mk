@@ -340,9 +340,7 @@ PRODUCT_PACKAGES += \
     libcurl.vendor \
     libjson \
     libjsoncpp.vendor \
-    libqti_vndfwk_detect.vendor \
-    libsqlite.vendor \
-    libvndfwk_detect_jni.qti.vendor
+    libsqlite.vendor
 
 # Security
 BOOT_SECURITY_PATCH := 2021-11-05
