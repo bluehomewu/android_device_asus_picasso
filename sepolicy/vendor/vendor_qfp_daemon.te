@@ -1,0 +1,5 @@
+binder_call(vendor_qfp-daemon, vendor_hal_perf_default)
+set_prop(vendor_qfp-daemon, vendor_qfp_prop)
+set_prop(vendor_qfp-daemon, vendor_fingerprint_prop)
+
+allow vendor_qfp-daemon vendor_hal_perf_hwservice:hwservice_manager find;

@@ -1,5 +1,7 @@
 # Fingerprint
 type vendor_fingerprint_prop, property_type;
+type vendor_qfp_prop, property_type;
+type vendor_battery_prop, property_type;
 
 # GPS
 type vendor_gps_prop, property_type;

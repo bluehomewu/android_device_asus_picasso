@@ -62,6 +62,18 @@ on boot
     chown system system /sys/class/sensors/lsensor_2nd/selection
     chown system system /sys/class/sensors/lsensor_2nd/switch
 
+    # ASUS call and thermal state hooks
+    chown system system /sys/class/asuslib/in_call
+    chmod 0660 /sys/class/asuslib/in_call
+    chown system system /sys/class/asuslib/virtual_thermal
+    chmod 0660 /sys/class/asuslib/virtual_thermal
+    chown system system /sys/class/asuslib/set_virtualthermal
+    chmod 0660 /sys/class/asuslib/set_virtualthermal
+    chown system system /sys/class/sensors/psensor/oil_flag
+    chmod 0660 /sys/class/sensors/psensor/oil_flag
+    chown system system /sys/devices/platform/soc/990000.i2c/i2c-1/1-0038/fts_phone_state
+    chmod 0660 /sys/devices/platform/soc/990000.i2c/i2c-1/1-0038/fts_phone_state
+
 on charger
     # Battery
     mount_all /vendor/etc/fstab.battery --early
@@ -77,28 +89,64 @@ on property:ro.boot.country_code=JP
 
 on property:sys.boot_completed=1
     # Camera
+    mkdir /data/vendor/camera 0770 cameraserver camera
     copy /proc/driver/dualcam_cali /data/vendor/camera/dualcam_cali
+    copy /proc/driver/dualcam_cali_1x /data/vendor/camera/dualcam_cali_1x
+    copy /proc/driver/dualcam_cali_3x /data/vendor/camera/dualcam_cali_3x
     copy /vendor/factory/dualcam_cali.bin /data/vendor/camera/dualcam_cali.bin
     chmod 0755 /data/vendor/camera/dualcam_cali.bin
     chmod 0755 /data/vendor/camera/dualcam_cali
+    chmod 0755 /data/vendor/camera/dualcam_cali_1x
+    chmod 0755 /data/vendor/camera/dualcam_cali_3x
+    copy /proc/driver/dualcam_cali_1x /data/vendor/camera/arcsoft_calibration_uw.bin
+    copy /proc/driver/dualcam_cali_3x /data/vendor/camera/arcsoft_calibration_wt.bin
+    chmod 0755 /data/vendor/camera/arcsoft_calibration_uw.bin
+    chmod 0755 /data/vendor/camera/arcsoft_calibration_wt.bin
+    copy /vendor/lib64/camera/arcsoft_dc_calibration_t.bin /data/vendor/camera/arcsoft_dc_calibration_t.bin
+    copy /vendor/lib64/camera/arcsoft_dc_calibration_u.bin /data/vendor/camera/arcsoft_dc_calibration_u.bin
+    copy /vendor/lib64/camera/arcsoft_dc_calibration_w.bin /data/vendor/camera/arcsoft_dc_calibration_w.bin
+    chmod 0755 /data/vendor/camera/arcsoft_dc_calibration_t.bin
+    chmod 0755 /data/vendor/camera/arcsoft_dc_calibration_u.bin
+    chmod 0755 /data/vendor/camera/arcsoft_dc_calibration_w.bin
+    copy /vendor/lib64/camera/template_0.bin /data/vendor/camera/template_0.bin
+    copy /vendor/lib64/camera/template_1.bin /data/vendor/camera/template_1.bin
+    copy /vendor/lib64/camera/template_2.bin /data/vendor/camera/template_2.bin
+    copy /vendor/lib64/camera/template_6.bin /data/vendor/camera/template_6.bin
+    copy /vendor/lib64/camera/template_7.bin /data/vendor/camera/template_7.bin
+    chmod 0755 /data/vendor/camera/template_0.bin
+    chmod 0755 /data/vendor/camera/template_1.bin
+    chmod 0755 /data/vendor/camera/template_2.bin
+    chmod 0755 /data/vendor/camera/template_6.bin
+    chmod 0755 /data/vendor/camera/template_7.bin
     chmod 0644 /vendor/factory/dualcam_cali.bin
 
     # Power
     write /sys/class/asuslib/boot_completed 1
+    start battery_ver
+
+on property:sys.battery.shutdown=1
+    setprop sys.powerctl shutdown
+    setprop sys.battery.shutdown 0
+
+on property:sys.battery.versionupdate=1
+    start battery_ver
+
+on property:sys.battery.statuscheck=1
+    start battery_status
 
 on property:vendor.asus.virtualtherm=*
     # Thermal
     write /sys/class/asuslib/virtual_thermal ${vendor.asus.virtualtherm}
+
+on property:vendor.camera.set.apk.usingname=*
+    # Camera
+    setprop vendor.camera.apk.usingname ${vendor.camera.set.apk.usingname}
 
 on property:vendor.audio.in_call=*
     # Audio
     write /sys/class/asuslib/in_call ${vendor.audio.in_call}
     write /sys/class/sensors/psensor/oil_flag ${vendor.audio.in_call}
     write /sys/devices/platform/soc/990000.i2c/i2c-1/1-0038/fts_phone_state ${vendor.audio.in_call}
-
-on property:vendor.goodix.sensor.status=*
-   # Fingerprint
-   write /sys/devices/platform/soc/990000.i2c/i2c-1/1-0038/fp_auth_status ${vendor.goodix.sensor.status}
 
 on property:vendor.zram.enable=*
    # ZRAM
@@ -123,3 +171,19 @@ service vendor.camera-provider-2-5 /vendor/bin/hw/android.hardware.camera.provid
     ioprio rt 4
     capabilities SYS_NICE
     writepid /dev/cpuset/camera-daemon/tasks /dev/stune/foreground/tasks
+
+service battery_ver /vendor/bin/sh /vendor/bin/firmware_version.sh
+    class late_start
+    user system
+    group system
+    disabled
+    oneshot
+    seclabel u:r:vendor_qti_init_shell:s0
+
+service battery_status /vendor/bin/sh /vendor/bin/gaugeIC_status
+    class late_start
+    user system
+    group system
+    disabled
+    oneshot
+    seclabel u:r:vendor_qti_init_shell:s0

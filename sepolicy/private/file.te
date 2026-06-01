@@ -1,0 +1,2 @@
+# Snapdragon logo LED
+type sysfs_aura_logo_led, fs_type, sysfs_type;

@@ -3,8 +3,13 @@ genfscon proc /driver/dualcam_cali    u:object_r:vendor_proc_camera:s0
 genfscon proc /driver/ois_af_state    u:object_r:vendor_proc_camera:s0
 genfscon proc /driver/ois_i2c_rw      u:object_r:vendor_proc_camera:s0
 
+# Battery
+genfscon sysfs /class/asuslib/asus_get_FG_SoC      u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /class/asuslib/asus_get_batt_temp   u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /class/asuslib/asus_get_fw_version  u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /class/qcom-battery                 u:object_r:vendor_sysfs_battery_supply:s0
+
 # Display
-genfscon sysfs /class/drm/fod_touched    u:object_r:vendor_sysfs_graphics:s0
 genfscon sysfs /class/drm/hdr_mode       u:object_r:vendor_sysfs_graphics:s0
 genfscon proc  /driver/dclick            u:object_r:vendor_proc_graphics:s0
 genfscon proc  /driver/glove             u:object_r:vendor_proc_graphics:s0
@@ -20,16 +25,26 @@ genfscon proc /driver/fp_xy    u:object_r:vendor_proc_fingerprint:s0
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/clkgate_enable    u:object_r:vendor_sysfs_msm_perf:s0
 
 # Sensors
+genfscon sysfs /class/sensors/psensor/oil_flag    u:object_r:vendor_sysfs_sensors:s0
 genfscon sysfs /class/icm206xx             u:object_r:vendor_sysfs_sensors:s0
 genfscon sysfs /devices/virtual/sensors    u:object_r:vendor_sysfs_sensors:s0
 
+# Audio
+genfscon sysfs /class/asuslib/in_call    u:object_r:vendor_sysfs_asuslib_audio:s0
+
+# Touch
+genfscon sysfs /devices/platform/soc/990000.i2c/i2c-1/1-0038/fts_phone_state    u:object_r:vendor_sysfs_touch:s0
+
 # Thermal
 genfscon sysfs /class/asuslib/set_virtualthermal    u:object_r:sysfs_thermal:s0
+genfscon sysfs /class/asuslib/virtual_thermal       u:object_r:sysfs_thermal:s0
 
 # Vibrator
 genfscon sysfs /devices/platform/soc/998000.i2c/i2c-2/2-005a    u:object_r:sysfs_vibrator:s0
 
 # Wakeup
+genfscon sysfs /class/wakeup/wakeup                                                                                                 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/wakeup/wakeup                                                                                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/dummy_hcd.0/usb1/wakeup                                                                            u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/17300000.qcom,lpass/subsys6/wakeup                                                             u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/17300000.qcom,lpass/wakeup                                                                     u:object_r:sysfs_wakeup:s0

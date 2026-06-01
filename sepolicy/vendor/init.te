@@ -1,2 +1,12 @@
 # Battery
 allow init battery_file:dir mounton;
+
+# ASUS vendor init scripts write these sysfs nodes during call and thermal state changes.
+allow init sysfs_thermal:dir search;
+allow init sysfs_thermal:file w_file_perms;
+allow init vendor_sysfs_asuslib_audio:dir search;
+allow init vendor_sysfs_asuslib_audio:file w_file_perms;
+allow init vendor_sysfs_sensors:dir search;
+allow init vendor_sysfs_sensors:file w_file_perms;
+allow init vendor_sysfs_touch:dir search;
+allow init vendor_sysfs_touch:file w_file_perms;

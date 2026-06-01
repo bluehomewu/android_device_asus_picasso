@@ -3,3 +3,6 @@ type battery_block_device, dev_type;
 
 # Fingerprint
 type fingerprint_device, dev_type;
+
+# Camera
+type stm_device, dev_type;

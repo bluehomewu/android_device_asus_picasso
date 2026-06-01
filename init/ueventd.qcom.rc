@@ -168,6 +168,51 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/mhi_qdss             0660   system    oem_2902
 /sys/class/qdss_bridge/mhi_qdss  mode      0660     system   oem_2902
 
+# Snapdragon logo LED
+/sys/class/leds/aura_sync led_on    0660   system    system
+/sys/class/leds/aura_sync VDD       0660   system    system
+/sys/class/leds/aura_sync mode2     0660   system    system
+/sys/class/leds/aura_sync speed     0660   system    system
+/sys/class/leds/aura_sync apply     0660   system    system
+
+# Audio call state helpers
+/sys/class/asuslib in_call                    0660   system    system
+/sys/class/asuslib/in_call                    0660   system    system
+/sys/class/sensors/psensor oil_flag           0660   system    system
+/sys/class/sensors/psensor/oil_flag           0660   system    system
+/sys/devices/platform/soc/990000.i2c/i2c-1/1-0038 fts_phone_state 0660 system system
+/sys/devices/platform/soc/990000.i2c/i2c-1/1-0038/fts_phone_state 0660 system system
+
+# ASUS thermal hooks
+/sys/class/asuslib virtual_thermal            0660   system    system
+/sys/class/asuslib/virtual_thermal            0660   system    system
+/sys/class/asuslib set_virtualthermal         0660   system    system
+/sys/class/asuslib/set_virtualthermal         0660   system    system
+
+# Wakeup statistics consumed by system_suspend
+/sys/class/wakeup/wakeup* name                    0444   system    system
+/sys/class/wakeup/wakeup* active_count            0444   system    system
+/sys/class/wakeup/wakeup* active_time_ms          0444   system    system
+/sys/class/wakeup/wakeup* event_count             0444   system    system
+/sys/class/wakeup/wakeup* expire_count            0444   system    system
+/sys/class/wakeup/wakeup* last_change_ms          0444   system    system
+/sys/class/wakeup/wakeup* max_time_ms             0444   system    system
+/sys/class/wakeup/wakeup* prevent_suspend_time_ms 0444   system    system
+/sys/class/wakeup/wakeup* total_time_ms           0444   system    system
+/sys/class/wakeup/wakeup* wakeup_count            0444   system    system
+/sys/class/wakeup/wakeup* waiting_for_supplier    0444   system    system
+/sys/devices/virtual/wakeup/wakeup* name                    0444   system    system
+/sys/devices/virtual/wakeup/wakeup* active_count            0444   system    system
+/sys/devices/virtual/wakeup/wakeup* active_time_ms          0444   system    system
+/sys/devices/virtual/wakeup/wakeup* event_count             0444   system    system
+/sys/devices/virtual/wakeup/wakeup* expire_count            0444   system    system
+/sys/devices/virtual/wakeup/wakeup* last_change_ms          0444   system    system
+/sys/devices/virtual/wakeup/wakeup* max_time_ms             0444   system    system
+/sys/devices/virtual/wakeup/wakeup* prevent_suspend_time_ms 0444   system    system
+/sys/devices/virtual/wakeup/wakeup* total_time_ms           0444   system    system
+/sys/devices/virtual/wakeup/wakeup* wakeup_count            0444   system    system
+/sys/devices/virtual/wakeup/wakeup* waiting_for_supplier    0444   system    system
+
 #qg
 /dev/qg                   0660  system     system
 /dev/qg_battery           0660  system     system
@@ -291,6 +336,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/gnss_sirf             0660   gps     gps
 
 # laser sensor access
+/dev/stmvl53l5                                             0660   system   camera
 /sys/devices/virtual/input/input*                   enable_ps_sensor 0660  system   input
 /sys/devices/virtual/input/input*                   set_delay_ms     0660  system   input
 /sys/devices/virtual/input/input*                   do_flush         0660  system   input

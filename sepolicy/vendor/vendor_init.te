@@ -1,7 +1,17 @@
 get_prop(vendor_init, vendor_thermal_prop)
 get_prop(vendor_init, vendor_fingerprint_prop)
+set_prop(vendor_init, vendor_fingerprint_prop)
 set_prop(vendor_init, vendor_camera_prop)
+set_prop(vendor_init, vendor_qfp_prop)
 
-allow vendor_init vendor_goodix_data_file:file create_file_perms;
-allow vendor_init vendor_goodix_data_file:dir create_dir_perms;
 allow vendor_init vendor_proc_camera:file rw_file_perms;
+
+allow vendor_init vendor_sysfs_asuslib_audio:dir search;
+allow vendor_init vendor_sysfs_asuslib_audio:file w_file_perms;
+allow vendor_init vendor_sysfs_sensors:dir search;
+allow vendor_init vendor_sysfs_sensors:file w_file_perms;
+allow vendor_init vendor_sysfs_touch:dir search;
+allow vendor_init vendor_sysfs_touch:file w_file_perms;
+
+allow vendor_init sysfs_thermal:dir search;
+allow vendor_init sysfs_thermal:file w_file_perms;
