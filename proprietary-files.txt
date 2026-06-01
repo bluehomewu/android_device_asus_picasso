@@ -1294,7 +1294,8 @@ vendor/etc/permissions/android.hardware.telephony.gsm.xml
 vendor/etc/permissions/android.hardware.telephony.ims.xml
 vendor/etc/qcril_database/upgrade/config/config/6.0_config.sql
 vendor/etc/qcril_database/upgrade/config/config/7.0_config.sql
-vendor/etc/qcril_database/upgrade/other/0_initial_qcrilnr.sql
+# Pinned: carries local 466/46692 emergency number additions.
+vendor/etc/qcril_database/upgrade/other/0_initial_qcrilnr.sql|f520122ba2168a08e649c43e17d48f88083a37f1
 vendor/etc/qcril_database/upgrade/other/1_version_intro_qcrilnr.sql
 vendor/etc/qcril_database/upgrade/other/2_version_add_wps_config_qcrilnr.sql
 vendor/etc/qcril_database/upgrade/other/3_version_update_wps_config_qcrilnr.sql
