@@ -6,9 +6,9 @@
 <resources>
 
     <!-- Default for Settings.Global.DEVICE_NAME $1=MANUFACTURER $2=MODEL-->
-    <string name="def_device_name">ASUS ZenFone 8</string>
+    <string name="def_device_name">ASUS Smartphone for Snapdragon Insiders</string>
 
     <!-- Default for Settings.Global.DEVICE_NAME $1=MODEL-->
-    <string name="def_device_name_simple">ZenFone 8</string>
+    <string name="def_device_name_simple">Smartphone for Snapdragon Insiders</string>
 
 </resources>

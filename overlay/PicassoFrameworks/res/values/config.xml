@@ -253,13 +253,7 @@
                 <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
          @see https://www.w3.org/TR/SVG/paths.html#PathData
          -->
-    <string name="config_mainBuiltInDisplayCutout">
-        M 131,77
-        m -36,0
-        a 36,36 0,1 1,72 0
-        a 36,36 0,1 1,-72 0
-        @left
-    </string>
+    <string name="config_mainBuiltInDisplayCutout" />
 
     <!-- Like config_mainBuiltInDisplayCutout, but this path is used to report the
          one single bounding rect per device edge to the app via
@@ -267,19 +261,12 @@
          appearance of the cutout as much as possible, and may be smaller than
          config_mainBuiltInDisplayCutout
          -->
-    <string name="config_mainBuiltInDisplayCutoutRectApproximation">
-        M 0.0,0.0
-        h 200
-        v 147
-        h -200
-        Z
-        @left
-    </string>
+    <string name="config_mainBuiltInDisplayCutoutRectApproximation" />
 
     <!-- Whether the display cutout region of the main built-in display should be forced to
          black in software (to avoid aliasing or emulate a cutout that is not physically existent).
          -->
-    <bool name="config_fillMainBuiltInDisplayCutout">true</bool>
+    <bool name="config_fillMainBuiltInDisplayCutout">false</bool>
 
     <!-- The default intensity level for haptic feedback. See Settings.System.HAPTIC_FEEDBACK_INTENSITY
          for more details on the constant values and meanings. -->
@@ -312,10 +299,10 @@
     <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
 
     <!-- MMS user agent string -->
-    <string name="config_mms_user_agent" translatable="false">ZS590KS</string>
+    <string name="config_mms_user_agent" translatable="false">ZS675KW</string>
 
     <!-- MMS user agent profile URL -->
-    <string name="config_mms_user_agent_profile_url" translatable="false">http://uaprofile.asus.com/uaprof/ASUS-ZS590KS.xml</string>
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://uaprofile.asus.com/uaprof/ASUS-ZS675KW.xml</string>
 
     <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
          when registering authenticators with BiometricService. Format must be ID:Modality:Strength,

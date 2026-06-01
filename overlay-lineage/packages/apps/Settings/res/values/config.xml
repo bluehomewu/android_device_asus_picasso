@@ -11,6 +11,6 @@
          2 = Left
          3 = Right
     -->
-    <integer name="config_fingerprintSensorLocation">1</integer>
+    <integer name="config_fingerprintSensorLocation">0</integer>
 
 </resources>

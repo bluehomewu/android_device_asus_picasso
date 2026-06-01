@@ -23,4 +23,7 @@
     <!-- Enable support for bokeh mode -->
     <bool name="support_bokeh_mode">true</bool>
 
+    <!-- Keep Snap on the standard camera path until Picasso's multi-camera stack is stable. -->
+    <string name="pref_camera2_multi_cameras_default" translatable="false">off</string>
+
 </resources>

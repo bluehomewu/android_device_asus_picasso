@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "ZenFone8Snap",
+    name: "PicassoSystemUI",
     vendor: true,
 }
