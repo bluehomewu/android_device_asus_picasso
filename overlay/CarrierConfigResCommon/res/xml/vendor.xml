@@ -1259,6 +1259,14 @@
         </string-array>
         <boolean name="config_update_service_status" value="true" />
     </carrier_config>
+    <carrier_config mcc="466" mnc="92">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="config_update_service_status" value="true" />
+        <boolean name="editable_enhanced_4g_lte_bool" value="true" />
+        <string name="5g_icon_configuration_string">connected_mmwave:5G,connected:5G,not_restricted:5G,restricted:LTE</string>
+    </carrier_config>
     <carrier_config mcc="460" mnc="00">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_vt_available_bool" value="true" />

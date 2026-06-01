@@ -5,7 +5,7 @@
 #
 
 # Inherit from our proprietary files directory.
-$(call inherit-product, vendor/asus/sake/sake-vendor.mk)
+$(call inherit-product, vendor/asus/picasso/picasso-vendor.mk)
 
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
@@ -52,7 +52,6 @@ $(call inherit-product, hardware/qcom-caf/sm8350/audio/configs/lahaina/lahaina.m
 $(call inherit-product, vendor/qcom/opensource/audio/configs/qssi/qssi.mk)
 
 PRODUCT_PACKAGES += \
-    libbatterylistener \
     libcirrusspkrprot \
     libcomprcapture \
     libexthwplugin \
@@ -68,25 +67,24 @@ PRODUCT_PACKAGES += \
 
 # Biometrics
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
-    vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.sake
+    android.hardware.biometrics.fingerprint@2.1-service
 
 # Bluetooth
 include vendor/qcom/opensource/commonsys-intf/bluetooth/bt-commonsys-intf-board.mk
 
 BOARD_HAVE_QCOM_FM := false
 
-$(call inherit-product, vendor/qcom/opensource/commonsys-intf/bluetooth/bt-system-opensource-product.mk)
+PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml
 
 PRODUCT_PACKAGES += \
+    Bluetooth \
     android.hardware.bluetooth.audio@2.0-impl \
     audio.bluetooth.default \
     com.dsi.ant@1.0.vendor \
@@ -159,11 +157,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 PRODUCT_PACKAGES += \
     libhidltransport.vendor \
     libhwbinder.vendor
-
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
 
 # Hotword Enrollment
 PRODUCT_COPY_FILES += \
@@ -255,10 +248,11 @@ PRODUCT_PACKAGES += \
     TelephonyResCommon \
     WifiResCommon \
     WifiResTarget \
-    ZenFone8Frameworks \
-    ZenFone8SettingsProvider \
-    ZenFone8Snap \
-    ZenFone8SystemUI
+    PicassoFrameworks \
+    PicassoParts \
+    PicassoSettingsProvider \
+    PicassoSnap \
+    PicassoSystemUI
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -269,6 +263,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
+    android.hardware.power.stats@1.0-service.mock \
     android.hardware.power-service-qti
 
 # Project ID Quota
@@ -343,7 +338,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.sake
+    vendor.lineage.touch@1.0-service.picasso
 
 # USB
 $(call inherit-product, vendor/qcom/opensource/usb/vendor_product.mk)

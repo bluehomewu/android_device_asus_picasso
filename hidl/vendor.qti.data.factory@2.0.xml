@@ -1,0 +1,11 @@
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest version="1.0" type="device">
+    <hal format="hidl">
+        <name>vendor.qti.data.factory</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::IFactory/default</fqname>
+    </hal>
+</manifest>
