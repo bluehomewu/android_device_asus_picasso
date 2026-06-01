@@ -4,7 +4,7 @@
 //
 
 cc_library {
-    name: "libgptutils.sake",
+    name: "libgptutils.picasso",
     vendor: true,
     recovery_available: true,
     shared_libs: [

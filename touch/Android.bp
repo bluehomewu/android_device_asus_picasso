@@ -4,9 +4,9 @@
 //
 
 cc_binary {
-    name: "vendor.lineage.touch@1.0-service.sake",
-    init_rc: ["vendor.lineage.touch@1.0-service.sake.rc"],
-    vintf_fragments: ["vendor.lineage.touch@1.0-service.sake.xml"],
+    name: "vendor.lineage.touch@1.0-service.picasso",
+    init_rc: ["vendor.lineage.touch@1.0-service.picasso.rc"],
+    vintf_fragments: ["vendor.lineage.touch@1.0-service.picasso.xml"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [

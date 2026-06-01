@@ -6,7 +6,7 @@
 
 BUILD_BROKEN_DUP_RULES := true
 
-DEVICE_PATH := device/asus/sake
+DEVICE_PATH := device/asus/picasso
 
 include build/make/target/board/BoardConfigMainlineCommon.mk
 
@@ -59,7 +59,7 @@ AUDIO_FEATURE_ENABLED_SPKR_PROTECTION := false
 AUDIO_FEATURE_ENABLED_SSR := false
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := ASUS_I006D
+TARGET_BOOTLOADER_BOARD_NAME := ASUS_I007D
 
 # DTB
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
@@ -113,7 +113,6 @@ BOARD_KERNEL_CMDLINE := \
 BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     adsp_loader_dlkm.ko \
     apr_dlkm.ko \
-    aw8697.ko \
     bolero_cdc_dlkm.ko \
     bt_fm_slim.ko \
     btpower.ko \
@@ -124,8 +123,7 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     fc0012.ko \
     fc0013.ko \
     fc2580.ko \
-    focaltech_fts_zf.ko \
-    gf_spi.ko \
+    focaltech_fts_rog.ko \
     hdmi_dlkm.ko \
     it913x.ko \
     lid.ko \
@@ -173,7 +171,8 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     swr_dlkm.ko \
     swr_dmic_dlkm.ko \
     swr_haptics_dlkm.ko \
-    sx932x_sake.ko \
+    sx932x.ko \
+    sx932x_2nd.ko \
     tda18212.ko \
     tda18218.ko \
     tda18250.ko \
@@ -254,7 +253,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_USES_RECOVERY_AS_BOOT := true
-BOOT_KERNEL_MODULES := focaltech_fts_zf.ko
+BOOT_KERNEL_MODULES := focaltech_fts_rog.ko
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.default
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888

@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=sake
+DEVICE=picasso
 VENDOR=asus
 
 # Load extract_utils and do some sanity checks
