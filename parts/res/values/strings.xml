@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="app_name">Picasso Parts</string>
+    <string name="logo_led_title">Snapdragon logo light</string>
+    <string name="logo_led_summary">Configure the rear logo light</string>
+    <string name="logo_led_mode_title">Light effect</string>
+    <string name="logo_led_keep_on_screen_off_title">Keep on when screen is off</string>
+    <string name="logo_led_speed_title">Breathing speed</string>
+
+    <string-array name="logo_led_mode_entries">
+        <item>Steady</item>
+        <item>Breathing</item>
+    </string-array>
+    <string-array name="logo_led_mode_values">
+        <item>static</item>
+        <item>breath</item>
+    </string-array>
+
+    <string-array name="logo_led_speed_entries">
+        <item>Slow</item>
+        <item>Normal</item>
+        <item>Fast</item>
+    </string-array>
+    <string-array name="logo_led_speed_values">
+        <item>slow</item>
+        <item>normal</item>
+        <item>fast</item>
+    </string-array>
+</resources>
