@@ -175,17 +175,11 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/class/leds/aura_sync speed     0660   system    system
 /sys/class/leds/aura_sync apply     0660   system    system
 
-# Audio call state helpers
-/sys/class/asuslib in_call                    0660   system    system
-/sys/class/asuslib/in_call                    0660   system    system
-/sys/class/sensors/psensor oil_flag           0660   system    system
-/sys/class/sensors/psensor/oil_flag           0660   system    system
+# Touch call state helper
 /sys/devices/platform/soc/990000.i2c/i2c-1/1-0038 fts_phone_state 0660 system system
 /sys/devices/platform/soc/990000.i2c/i2c-1/1-0038/fts_phone_state 0660 system system
 
 # ASUS thermal hooks
-/sys/class/asuslib virtual_thermal            0660   system    system
-/sys/class/asuslib/virtual_thermal            0660   system    system
 /sys/class/asuslib set_virtualthermal         0660   system    system
 /sys/class/asuslib/set_virtualthermal         0660   system    system
 
