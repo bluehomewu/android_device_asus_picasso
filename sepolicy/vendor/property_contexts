@@ -31,6 +31,7 @@ ro.vendor.csc.modemhash             u:object_r:vendor_radio_prop:s0
 vendor.asus.operator.iso-country    u:object_r:vendor_radio_prop:s0
 
 # Runtime
+vendor.runtime.         u:object_r:vendor_camera_prop:s0
 vendor.runtime.cvp2.    u:object_r:vendor_camera_prop:s0
 
 # Sensors
