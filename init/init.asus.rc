@@ -105,9 +105,11 @@ on property:sys.boot_completed=1
     copy /vendor/lib64/camera/arcsoft_dc_calibration_t.bin /data/vendor/camera/arcsoft_dc_calibration_t.bin
     copy /vendor/lib64/camera/arcsoft_dc_calibration_u.bin /data/vendor/camera/arcsoft_dc_calibration_u.bin
     copy /vendor/lib64/camera/arcsoft_dc_calibration_w.bin /data/vendor/camera/arcsoft_dc_calibration_w.bin
+    copy /vendor/lib64/camera/arcsoft_eis_configure /data/vendor/camera/arcsoft_eis_configure
     chmod 0755 /data/vendor/camera/arcsoft_dc_calibration_t.bin
     chmod 0755 /data/vendor/camera/arcsoft_dc_calibration_u.bin
     chmod 0755 /data/vendor/camera/arcsoft_dc_calibration_w.bin
+    chmod 0755 /data/vendor/camera/arcsoft_eis_configure
     copy /vendor/lib64/camera/template_0.bin /data/vendor/camera/template_0.bin
     copy /vendor/lib64/camera/template_1.bin /data/vendor/camera/template_1.bin
     copy /vendor/lib64/camera/template_2.bin /data/vendor/camera/template_2.bin
@@ -141,6 +143,14 @@ on property:vendor.asus.virtualtherm=*
 on property:vendor.camera.set.apk.usingname=*
     # Camera
     setprop vendor.camera.apk.usingname ${vendor.camera.set.apk.usingname}
+
+on property:vendor.asus.dis_flash_light=1
+    # Camera
+    write /proc/driver/asus_flash "2 1"
+
+on property:vendor.asus.dis_flash_light=0
+    # Camera
+    write /proc/driver/asus_flash "2 0"
 
 on property:vendor.audio.in_call=*
     # Audio

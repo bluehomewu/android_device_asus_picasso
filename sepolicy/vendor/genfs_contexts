@@ -2,6 +2,9 @@
 genfscon proc /driver/dualcam_cali    u:object_r:vendor_proc_camera:s0
 genfscon proc /driver/ois_af_state    u:object_r:vendor_proc_camera:s0
 genfscon proc /driver/ois_i2c_rw      u:object_r:vendor_proc_camera:s0
+genfscon proc /driver/asus_flash      u:object_r:vendor_proc_camera:s0
+genfscon proc /driver/asus_flash2     u:object_r:vendor_proc_camera:s0
+genfscon proc /driver/flash_status    u:object_r:vendor_proc_camera:s0
 
 # Battery
 genfscon sysfs /class/asuslib/asus_get_FG_SoC      u:object_r:vendor_sysfs_battery_supply:s0
