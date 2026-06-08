@@ -86,6 +86,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     Bluetooth \
+    android.hardware.bluetooth@1.0.vendor \
     android.hardware.bluetooth.audio@2.0-impl \
     audio.bluetooth.default \
     com.dsi.ant@1.0.vendor \
@@ -117,6 +118,7 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
+    android.hardware.drm@1.3.vendor \
     android.hardware.drm@1.4-service.clearkey
 
 # Dalvik
@@ -138,6 +140,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.common-V1-ndk_platform.vendor \
     android.hardware.lights-service.qti \
     libtinyxml \
     lights.qcom \
@@ -150,6 +153,11 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
+
+PRODUCT_PACKAGES += \
+    android.hardware.gnss.measurement_corrections@1.1.vendor \
+    android.hardware.gnss.visibility_control@1.0.vendor \
+    android.hardware.gnss@2.1.vendor
 
 # GSI
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
@@ -183,6 +191,11 @@ PRODUCT_PACKAGES += \
 # Keymaster
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
+
+PRODUCT_PACKAGES += \
+    android.hardware.authsecret@1.0.vendor \
+    android.hardware.gatekeeper@1.0.vendor \
+    android.hardware.keymaster@4.1.vendor
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -220,7 +233,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml
 
 PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.2.vendor \
     android.hardware.secure_element@1.0:64 \
+    android.hardware.secure_element@1.2.vendor \
     ls_nq_client:64 \
     jcos_nq_client:64 \
     vendor.nxp.nxpnfc@1.0.vendor
@@ -235,7 +250,12 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Networking
 PRODUCT_PACKAGES += \
+    android.system.net.netd@1.1.vendor \
     libnl
+
+# Neural Networks
+PRODUCT_PACKAGES += \
+    android.hardware.neuralnetworks@1.3.vendor
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
@@ -266,7 +286,8 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power.stats@1.0-service.mock \
-    android.hardware.power-service-qti
+    android.hardware.power-service-qti \
+    android.hardware.power@1.2.vendor
 
 # Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
@@ -323,6 +344,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
 
 PRODUCT_PACKAGES += \
+    android.hardware.radio@1.5.vendor \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.deprecated@1.0.vendor \
     ims-ext-common \
     ims_ext_common.xml \
     qti-telephony-hidl-wrapper \
