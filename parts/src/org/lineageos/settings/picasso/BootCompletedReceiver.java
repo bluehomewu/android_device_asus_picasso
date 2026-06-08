@@ -13,7 +13,7 @@ public final class BootCompletedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
-            LogoLedController.applySavedState(context);
+            LogoLedController.applySavedStateOnBoot(context);
         }
     }
 }

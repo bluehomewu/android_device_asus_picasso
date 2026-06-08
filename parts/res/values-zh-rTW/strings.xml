@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="app_name">Picasso Parts</string>
+    <string name="logo_led_title">Snapdragon 標誌燈</string>
+    <string name="logo_led_tile_label">標誌燈</string>
+    <string name="logo_led_summary">設定背面標誌燈</string>
+    <string name="logo_led_mode_title">燈光效果</string>
+    <string name="logo_led_keep_on_screen_off_title">螢幕關閉時保持亮起</string>
+    <string name="logo_led_speed_title">呼吸速度</string>
+
+    <string-array name="logo_led_mode_entries">
+        <item>恆亮</item>
+        <item>呼吸</item>
+    </string-array>
+
+    <string-array name="logo_led_speed_entries">
+        <item>慢</item>
+        <item>正常</item>
+        <item>快</item>
+    </string-array>
+</resources>

@@ -36,6 +36,8 @@ final class LogoLedController {
     private static final String MODE2_PATH = LOGO_LED_BASE_PATH + "/mode2";
     private static final String SPEED_PATH = LOGO_LED_BASE_PATH + "/speed";
     private static final String VDD_PATH = LOGO_LED_BASE_PATH + "/VDD";
+    private static final int BOOT_APPLY_ATTEMPTS = 6;
+    private static final long BOOT_APPLY_RETRY_DELAY_MS = 2000;
 
     private LogoLedController() {
     }
@@ -80,6 +82,18 @@ final class LogoLedController {
         writeState(context, isEnabled(context), false);
     }
 
+    static void applySavedStateOnBoot(Context context) {
+        Context appContext = context.getApplicationContext();
+        new Thread(() -> {
+            for (int attempt = 0; attempt < BOOT_APPLY_ATTEMPTS; attempt++) {
+                if (writeState(appContext, isEnabled(appContext), false)) {
+                    return;
+                }
+                sleepQuietly(BOOT_APPLY_RETRY_DELAY_MS);
+            }
+        }, TAG + "-BootApply").start();
+    }
+
     static void handleScreenOff(Context context) {
         if (isEnabled(context) && !keepOnScreenOff(context)) {
             writeState(context, false, true);
@@ -94,27 +108,29 @@ final class LogoLedController {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
     }
 
-    private static void writeState(Context context, boolean enabled, boolean screenOffOnly) {
+    private static boolean writeState(Context context, boolean enabled, boolean screenOffOnly) {
+        boolean success = true;
         if (enabled) {
-            writeNode(VDD_PATH, "1");
+            success &= writeNode(VDD_PATH, "1");
             sleepQuietly(1000);
-            writeNode(LED_ON_PATH, "1");
+            success &= writeNode(LED_ON_PATH, "1");
             sleepQuietly(300);
             if (MODE_BREATH.equals(getMode(context))) {
-                writeNode(SPEED_PATH, getSpeedValue(context));
+                success &= writeNode(SPEED_PATH, getSpeedValue(context));
             }
-            writeNode(MODE2_PATH, getModeValue(context));
+            success &= writeNode(MODE2_PATH, getModeValue(context));
             readNode(MODE2_PATH);
             sleepQuietly(100);
-            writeNode(APPLY_PATH, "1");
+            success &= writeNode(APPLY_PATH, "1");
         } else {
-            writeNode(LED_ON_PATH, "0");
+            success &= writeNode(LED_ON_PATH, "0");
             if (!screenOffOnly) {
-                writeNode(MODE2_PATH, "0");
-                writeNode(APPLY_PATH, "1");
-                writeNode(VDD_PATH, "0");
+                success &= writeNode(MODE2_PATH, "0");
+                success &= writeNode(APPLY_PATH, "1");
+                success &= writeNode(VDD_PATH, "0");
             }
         }
+        return success;
     }
 
     private static String getModeValue(Context context) {
@@ -156,17 +172,19 @@ final class LogoLedController {
         }
     }
 
-    private static void writeNode(String path, String value) {
+    private static boolean writeNode(String path, String value) {
         File node = new File(path);
         if (!node.exists()) {
             Log.w(TAG, path + " is not available");
-            return;
+            return false;
         }
 
         try (FileOutputStream stream = new FileOutputStream(node)) {
             stream.write(value.getBytes(StandardCharsets.US_ASCII));
+            return true;
         } catch (IOException e) {
             Log.e(TAG, "Failed to write " + path, e);
+            return false;
         }
     }
 }

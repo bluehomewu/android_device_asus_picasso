@@ -6,6 +6,7 @@
 <resources>
     <string name="app_name">Picasso Parts</string>
     <string name="logo_led_title">Snapdragon logo light</string>
+    <string name="logo_led_tile_label">Logo light</string>
     <string name="logo_led_summary">Configure the rear logo light</string>
     <string name="logo_led_mode_title">Light effect</string>
     <string name="logo_led_keep_on_screen_off_title">Keep on when screen is off</string>
