@@ -20,6 +20,7 @@ public final class LogoLedSettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.logo_led_title);
 
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(this);
 
