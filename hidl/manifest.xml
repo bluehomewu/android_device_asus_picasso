@@ -580,21 +580,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <!-- TrustedUI -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.trustedui</name>
-        <transport>hwbinder</transport>
-        <interface>
-            <name>ITrustedInput</name>
-            <instance>default</instance>
-            <instance>qtee-vm</instance>
-        </interface>
-        <interface>
-            <name>ITrustedUI</name>
-            <instance>default</instance>
-            <instance>qtee-vm</instance>
-        </interface>
-    </hal>
     <!-- TuiComm -->
     <hal format="hidl">
         <name>vendor.qti.hardware.tui_comm</name>
