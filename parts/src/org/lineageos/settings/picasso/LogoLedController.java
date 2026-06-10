@@ -5,8 +5,10 @@
 
 package org.lineageos.settings.picasso;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.service.quicksettings.TileService;
 import android.util.Log;
 
 import java.io.File;
@@ -47,8 +49,9 @@ final class LogoLedController {
     }
 
     static void setEnabled(Context context, boolean enabled) {
-        getPreferences(context).edit().putBoolean(KEY_ENABLED, enabled).apply();
+        getPreferences(context).edit().putBoolean(KEY_ENABLED, enabled).commit();
         writeState(context, enabled, false);
+        updateTile(context);
     }
 
     static String getMode(Context context) {
@@ -106,6 +109,11 @@ final class LogoLedController {
 
     private static SharedPreferences getPreferences(Context context) {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+    }
+
+    private static void updateTile(Context context) {
+        TileService.requestListeningState(context,
+                new ComponentName(context, LogoLedTileService.class));
     }
 
     private static boolean writeState(Context context, boolean enabled, boolean screenOffOnly) {

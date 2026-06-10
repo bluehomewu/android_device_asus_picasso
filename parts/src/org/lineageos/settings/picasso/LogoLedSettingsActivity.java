@@ -12,6 +12,9 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
 public final class LogoLedSettingsActivity extends PreferenceActivity {
+    private SwitchPreference mLogoLedPreference;
+    private SwitchPreference mKeepOnScreenOffPreference;
+    private ListPreference mModePreference;
     private ListPreference mSpeedPreference;
 
     @Override
@@ -20,42 +23,48 @@ public final class LogoLedSettingsActivity extends PreferenceActivity {
 
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(this);
 
-        SwitchPreference logoLed = new SwitchPreference(this);
-        logoLed.setKey(LogoLedController.KEY_ENABLED);
-        logoLed.setTitle(R.string.logo_led_title);
-        logoLed.setChecked(LogoLedController.isEnabled(this));
-        logoLed.setOnPreferenceChangeListener((preference, newValue) -> {
+        mLogoLedPreference = new SwitchPreference(this);
+        mLogoLedPreference.setKey(LogoLedController.KEY_ENABLED);
+        mLogoLedPreference.setPersistent(false);
+        mLogoLedPreference.setTitle(R.string.logo_led_title);
+        mLogoLedPreference.setChecked(LogoLedController.isEnabled(this));
+        mLogoLedPreference.setOnPreferenceChangeListener((preference, newValue) -> {
             LogoLedController.setEnabled(this, (Boolean) newValue);
-            return true;
+            mLogoLedPreference.setChecked((Boolean) newValue);
+            return false;
         });
 
-        ListPreference logoMode = new ListPreference(this);
-        logoMode.setKey(LogoLedController.KEY_MODE);
-        logoMode.setTitle(R.string.logo_led_mode_title);
-        logoMode.setEntries(R.array.logo_led_mode_entries);
-        logoMode.setEntryValues(R.array.logo_led_mode_values);
-        logoMode.setValue(LogoLedController.getMode(this));
-        logoMode.setSummary(logoMode.getEntry());
-        logoMode.setOnPreferenceChangeListener((preference, newValue) -> {
+        mModePreference = new ListPreference(this);
+        mModePreference.setKey(LogoLedController.KEY_MODE);
+        mModePreference.setPersistent(false);
+        mModePreference.setTitle(R.string.logo_led_mode_title);
+        mModePreference.setEntries(R.array.logo_led_mode_entries);
+        mModePreference.setEntryValues(R.array.logo_led_mode_values);
+        mModePreference.setValue(LogoLedController.getMode(this));
+        mModePreference.setSummary(mModePreference.getEntry());
+        mModePreference.setOnPreferenceChangeListener((preference, newValue) -> {
             String mode = (String) newValue;
             LogoLedController.setMode(this, mode);
-            logoMode.setValue(mode);
-            logoMode.setSummary(logoMode.getEntry());
+            mModePreference.setValue(mode);
+            mModePreference.setSummary(mModePreference.getEntry());
             updateSpeedVisibility(mode);
             return false;
         });
 
-        SwitchPreference keepOnScreenOff = new SwitchPreference(this);
-        keepOnScreenOff.setKey(LogoLedController.KEY_KEEP_ON_SCREEN_OFF);
-        keepOnScreenOff.setTitle(R.string.logo_led_keep_on_screen_off_title);
-        keepOnScreenOff.setChecked(LogoLedController.keepOnScreenOff(this));
-        keepOnScreenOff.setOnPreferenceChangeListener((preference, newValue) -> {
+        mKeepOnScreenOffPreference = new SwitchPreference(this);
+        mKeepOnScreenOffPreference.setKey(LogoLedController.KEY_KEEP_ON_SCREEN_OFF);
+        mKeepOnScreenOffPreference.setPersistent(false);
+        mKeepOnScreenOffPreference.setTitle(R.string.logo_led_keep_on_screen_off_title);
+        mKeepOnScreenOffPreference.setChecked(LogoLedController.keepOnScreenOff(this));
+        mKeepOnScreenOffPreference.setOnPreferenceChangeListener((preference, newValue) -> {
             LogoLedController.setKeepOnScreenOff(this, (Boolean) newValue);
-            return true;
+            mKeepOnScreenOffPreference.setChecked((Boolean) newValue);
+            return false;
         });
 
         mSpeedPreference = new ListPreference(this);
         mSpeedPreference.setKey(LogoLedController.KEY_SPEED);
+        mSpeedPreference.setPersistent(false);
         mSpeedPreference.setTitle(R.string.logo_led_speed_title);
         mSpeedPreference.setEntries(R.array.logo_led_speed_entries);
         mSpeedPreference.setEntryValues(R.array.logo_led_speed_values);
@@ -69,15 +78,33 @@ public final class LogoLedSettingsActivity extends PreferenceActivity {
             return false;
         });
 
-        screen.addPreference(logoLed);
-        screen.addPreference(logoMode);
-        screen.addPreference(keepOnScreenOff);
+        screen.addPreference(mLogoLedPreference);
+        screen.addPreference(mModePreference);
+        screen.addPreference(mKeepOnScreenOffPreference);
         screen.addPreference(mSpeedPreference);
         setPreferenceScreen(screen);
-        updateSpeedVisibility(LogoLedController.getMode(this));
+        refreshState();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshState();
     }
 
     private void updateSpeedVisibility(String mode) {
         mSpeedPreference.setEnabled(LogoLedController.MODE_BREATH.equals(mode));
+    }
+
+    private void refreshState() {
+        String mode = LogoLedController.getMode(this);
+
+        mLogoLedPreference.setChecked(LogoLedController.isEnabled(this));
+        mModePreference.setValue(mode);
+        mModePreference.setSummary(mModePreference.getEntry());
+        mKeepOnScreenOffPreference.setChecked(LogoLedController.keepOnScreenOff(this));
+        mSpeedPreference.setValue(LogoLedController.getSpeed(this));
+        mSpeedPreference.setSummary(mSpeedPreference.getEntry());
+        updateSpeedVisibility(mode);
     }
 }
