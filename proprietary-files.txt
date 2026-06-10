@@ -1881,7 +1881,10 @@ vendor/firmware/hdcpsrm.mdt
 
 # WLAN
 vendor/bin/cnss-daemon
-vendor/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
+vendor/etc/wifi/p2p_supplicant_overlay.conf|05f22cd82cbe806d46185a3e5ce69c86cd307128
+vendor/etc/wifi/vendor_cmd.xml|b984ecbb79d2ca0b789274fce3fde793b41d3dc6
+vendor/etc/wifi/wpa_supplicant_overlay.conf|8a08fe916b6e31b73e4eae65f7339f87839d4867
+vendor/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini|05e1266173d2172c265cd9431704ac9e5fce41de
 vendor/firmware/Data.msc
 vendor/firmware/amss.bin
 vendor/firmware/m3.bin
