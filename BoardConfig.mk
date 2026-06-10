@@ -23,6 +23,7 @@ AB_OTA_PARTITIONS := \
     vbmeta \
     vbmeta_system \
     vendor \
+    vendor_dlkm \
     vendor_boot
 
 # AVB
@@ -81,8 +82,9 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/hidl/asus_framework_matrix.xml \
-    $(DEVICE_PATH)/hidl/device_framework_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml
+    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
+    vendor/lineage/config/device_framework_matrix.xml \
+    vendor/nxp/nfc/vendor_framework_compatibility_matrix.xml
 
 DEVICE_MANIFEST_FILE := \
     $(DEVICE_PATH)/hidl/asus_manifest.xml \
@@ -213,7 +215,7 @@ TARGET_KERNEL_CONFIG := vendor/$(PRODUCT_DEVICE)_defconfig
 TARGET_KERNEL_SOURCE := kernel/asus/sm8350
 
 # Partitions
-BOARD_ASUS_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor
+BOARD_ASUS_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor vendor_dlkm
 BOARD_ASUS_DYNAMIC_PARTITIONS_SIZE := 7512192768 # BOARD_SUPER_PARTITION_SIZE - 4MB
 BOARD_SUPER_PARTITION_GROUPS := asus_dynamic_partitions
 BOARD_SUPER_PARTITION_SIZE := 7516192768
@@ -238,8 +240,10 @@ BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
 
 TARGET_COPY_OUT_ODM := odm
+TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
