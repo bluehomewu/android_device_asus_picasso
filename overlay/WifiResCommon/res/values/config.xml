@@ -32,6 +32,12 @@
     <!-- Indicates that connected MAC randomization is supported on this device -->
     <bool name="config_wifi_connected_mac_randomization_supported">true</bool>
 
+    <!-- Disable framework auto-upgrade on mixed WPA2/WPA3 networks. The vendor
+         driver rejects some transition-mode APs when the framework adds SAE
+         security params to a saved PSK network. -->
+    <bool name="config_wifiSaeUpgradeEnabled">false</bool>
+    <bool name="config_wifiOweUpgradeEnabled">false</bool>
+
     <!-- Boolean indicating that wifi only link configuratios that have exact same credentials (i.e PSK) -->
     <bool name="config_wifi_only_link_same_credential_configurations">false</bool>
 
