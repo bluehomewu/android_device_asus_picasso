@@ -141,7 +141,8 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     lights.qcom \
     memtrack.default \
-    vendor.lineage.livedisplay@2.0-service-sdm
+    vendor.lineage.livedisplay@2.0-service-sdm \
+    vendor.qti.hardware.display.composer-service
 
 # Fastboot
 PRODUCT_PACKAGES += \
@@ -226,8 +227,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_eSE/android.hardware.se.omapi.ese.xml \
     frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml
 
+PRODUCT_USES_ESE := false
+
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2.vendor \
     android.hardware.secure_element@1.0:64 \
     android.hardware.secure_element@1.2.vendor \
     vendor.nxp.nxpnfc@1.0.vendor
