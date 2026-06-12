@@ -75,7 +75,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Bluetooth \
     android.hardware.bluetooth@1.0.vendor \
-    android.hardware.bluetooth.audio@2.1-impl \
+    android.hardware.bluetooth.audio-impl \
     audio.bluetooth.default \
     com.dsi.ant@1.0.vendor \
     libbluetooth_audio_session \
