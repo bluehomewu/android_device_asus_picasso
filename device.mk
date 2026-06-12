@@ -48,7 +48,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
     android.hardware.soundtrigger@2.3-impl \
-    audio.primary.lahaina \
     audio.r_submix.default \
     audio.usb.default \
     audioadsprpcd \
@@ -63,8 +62,7 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libsndmonitor \
     libspkrprot \
-    libvolumelistener \
-    sound_trigger.primary.lahaina
+    libvolumelistener
 
 # Biometrics
 PRODUCT_COPY_FILES += \
@@ -121,19 +119,28 @@ PRODUCT_PACKAGES += \
     librmnetctl
 
 # Display
-$(call inherit-product, hardware/qcom-caf/sm8350/display/config/display-product.mk)
 $(call inherit-product, vendor/qcom/opensource/commonsys-intf/display/config/display-interfaces-product.mk)
-$(call inherit-product, vendor/qcom/opensource/commonsys-intf/display/config/display-product-system.mk)
-$(call inherit-product, vendor/qcom/opensource/display/config/display-product-vendor.mk)
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.common-V1-ndk_platform.vendor \
+    android.hardware.graphics.mapper@3.0-impl-qti-display \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.lights-service.qti \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    libdisplayconfig.qti \
+    libdisplayconfig.system.qti \
+    libmemutils \
+    libqdMetaData \
+    libqdMetaData.system \
+    libsdmcore \
+    libsdmutils \
     libtinyxml \
     lights.qcom \
+    memtrack.default \
     vendor.lineage.livedisplay@2.0-service-sdm
 
 # Fastboot
@@ -223,12 +230,7 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2.vendor \
     android.hardware.secure_element@1.0:64 \
     android.hardware.secure_element@1.2.vendor \
-    ls_nq_client:64 \
-    jcos_nq_client:64 \
     vendor.nxp.nxpnfc@1.0.vendor
-
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/nxp/opensource/pn5xx
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
