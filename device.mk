@@ -43,11 +43,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/sound_trigger_mixer_paths.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
-$(call inherit-product, hardware/qcom-caf/sm8350/audio/configs/lahaina/lahaina.mk)
-$(call inherit-product, hardware/qcom-caf/sm8350/audio/configs/audio_vendor_product.mk)
-$(call inherit-product, hardware/qcom-caf/sm8350/audio/configs/qssi/qssi.mk)
-
 PRODUCT_PACKAGES += \
+    android.hardware.audio@6.0-impl \
+    android.hardware.audio.effect@6.0-impl \
+    android.hardware.audio.service \
+    android.hardware.soundtrigger@2.3-impl \
+    audio.primary.lahaina \
+    audio.r_submix.default \
+    audio.usb.default \
+    audioadsprpcd \
+    libbatterylistener \
     libcirrusspkrprot \
     libcomprcapture \
     libexthwplugin \
@@ -73,7 +78,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml
 
 PRODUCT_PACKAGES += \
-    Bluetooth \
     android.hardware.bluetooth@1.0.vendor \
     android.hardware.bluetooth.audio-impl \
     audio.bluetooth.default \
