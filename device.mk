@@ -45,7 +45,7 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, hardware/qcom-caf/sm8350/audio/configs/lahaina/lahaina.mk)
 $(call inherit-product, hardware/qcom-caf/sm8350/audio/configs/audio_vendor_product.mk)
-$(call inherit-product, vendor/qcom/opensource/audio/configs/qssi/qssi.mk)
+$(call inherit-product, hardware/qcom-caf/sm8350/audio/configs/qssi/qssi.mk)
 
 PRODUCT_PACKAGES += \
     libcirrusspkrprot \
