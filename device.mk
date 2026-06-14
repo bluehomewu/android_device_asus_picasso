@@ -49,16 +49,16 @@ PRODUCT_COPY_FILES += \
     vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/audio_platform_info_intcodec_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
     vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/audio_platform_info_intcodec_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/audio_platform_info.xml \
     vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/audio_platform_info_intcodec_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/audio_platform_info_intcodec.xml \
-    vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/audio_policy_configuration_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/audio_policy_configuration_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/audio_policy_configuration.xml \
     vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/audio_policy_volumes_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/audio_policy_volumes_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/audio_policy_volumes.xml \
     vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/default_volume_tables_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/default_volume_tables_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/default_volume_tables.xml \
     vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/mixer_paths_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
     vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/mixer_paths_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/mixer_paths.xml \
-    vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/r_submix_audio_policy_configuration_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
-    vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/r_submix_audio_policy_configuration_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/r_submix_audio_policy_configuration.xml \
     vendor/asus/picasso/proprietary/vendor/etc/audio/picasso/sound_trigger_mixer_paths_picasso.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/sound_trigger_mixer_paths.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
@@ -83,7 +83,8 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libsndmonitor \
     libspkrprot \
-    libvolumelistener
+    libvolumelistener \
+    sound_trigger.primary.lahaina
 
 # Biometrics
 PRODUCT_COPY_FILES += \
@@ -162,9 +163,14 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     lights.qcom \
     memtrack.default \
+    vendor.display.config@1.12.vendor \
+    vendor.display.config@1.13.vendor \
+    vendor.display.config@1.14.vendor \
+    vendor.display.config@1.15.vendor \
     vendor.lineage.livedisplay@2.0-service-sdm \
     vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.composer-service
+    vendor.qti.hardware.display.composer-service \
+    vendor.qti.hardware.display.mapper@4.0.vendor
 
 # Fastboot
 PRODUCT_PACKAGES += \
