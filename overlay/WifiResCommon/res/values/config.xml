@@ -36,6 +36,7 @@
          driver rejects some transition-mode APs when the framework adds SAE
          security params to a saved PSK network. -->
     <bool name="config_wifiSaeUpgradeEnabled">false</bool>
+    <bool name="config_wifiSaeUpgradeOffloadEnabled">false</bool>
     <bool name="config_wifiOweUpgradeEnabled">false</bool>
 
     <!-- Boolean indicating that wifi only link configuratios that have exact same credentials (i.e PSK) -->
