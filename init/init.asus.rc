@@ -77,10 +77,6 @@ on property:persist.vendor.zram.enable=${persist.vendor.zram.enable}
     setprop vendor.zram.enable ${persist.vendor.zram.enable}
     setprop vendor.zram.disksize ${persist.vendor.zram.disksize}
 
-on property:ro.boot.country_code=JP
-    # NFC
-    setprop ro.boot.product.hardware.sku eSE
-
 on property:sys.boot_completed=1
     # Camera
     mkdir /data/vendor/camera 0770 cameraserver camera
