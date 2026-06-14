@@ -83,8 +83,7 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libsndmonitor \
     libspkrprot \
-    libvolumelistener \
-    sound_trigger.primary.lahaina
+    libvolumelistener
 
 # Biometrics
 PRODUCT_COPY_FILES += \
