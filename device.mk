@@ -142,6 +142,7 @@ PRODUCT_PACKAGES += \
     lights.qcom \
     memtrack.default \
     vendor.lineage.livedisplay@2.0-service-sdm \
+    vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer-service
 
 # Fastboot
