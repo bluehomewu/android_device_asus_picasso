@@ -7,6 +7,7 @@ package org.lineageos.settings.picasso;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.PowerManager;
 import android.util.Log;
 
 import java.io.File;
@@ -48,7 +49,7 @@ final class LogoLedController {
 
     static void setEnabled(Context context, boolean enabled) {
         getPreferences(context).edit().putBoolean(KEY_ENABLED, enabled).commit();
-        writeState(context, enabled, false);
+        applySavedState(context);
     }
 
     static String getMode(Context context) {
@@ -65,7 +66,7 @@ final class LogoLedController {
     }
 
     static void setKeepOnScreenOff(Context context, boolean keepOnScreenOff) {
-        getPreferences(context).edit().putBoolean(KEY_KEEP_ON_SCREEN_OFF, keepOnScreenOff).apply();
+        getPreferences(context).edit().putBoolean(KEY_KEEP_ON_SCREEN_OFF, keepOnScreenOff).commit();
         applySavedState(context);
     }
 
@@ -79,14 +80,14 @@ final class LogoLedController {
     }
 
     static void applySavedState(Context context) {
-        writeState(context, isEnabled(context), false);
+        writeState(context, shouldEnableHardware(context));
     }
 
     static void applySavedStateOnBoot(Context context) {
         Context appContext = context.getApplicationContext();
         new Thread(() -> {
             for (int attempt = 0; attempt < BOOT_APPLY_ATTEMPTS; attempt++) {
-                if (writeState(appContext, isEnabled(appContext), false)) {
+                if (writeState(appContext, shouldEnableHardware(appContext))) {
                     return;
                 }
                 sleepQuietly(BOOT_APPLY_RETRY_DELAY_MS);
@@ -96,7 +97,7 @@ final class LogoLedController {
 
     static void handleScreenOff(Context context) {
         if (isEnabled(context) && !keepOnScreenOff(context)) {
-            writeState(context, false, true);
+            writeState(context, false);
         }
     }
 
@@ -108,28 +109,53 @@ final class LogoLedController {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
     }
 
-    private static boolean writeState(Context context, boolean enabled, boolean screenOffOnly) {
+    private static boolean shouldEnableHardware(Context context) {
+        return isEnabled(context) && (keepOnScreenOff(context) || isInteractive(context));
+    }
+
+    private static boolean isInteractive(Context context) {
+        PowerManager powerManager = context.getSystemService(PowerManager.class);
+        return powerManager == null || powerManager.isInteractive();
+    }
+
+    private static synchronized boolean writeState(Context context, boolean enabled) {
         boolean success = true;
         if (enabled) {
+            if (!shouldEnableHardware(context)) {
+                return writeDisabledState();
+            }
             success &= writeNode(VDD_PATH, "1");
             sleepQuietly(1000);
+            if (!shouldEnableHardware(context)) {
+                return writeDisabledState();
+            }
             success &= writeNode(LED_ON_PATH, "1");
             sleepQuietly(300);
+            if (!shouldEnableHardware(context)) {
+                return writeDisabledState();
+            }
             if (MODE_BREATH.equals(getMode(context))) {
                 success &= writeNode(SPEED_PATH, getSpeedValue(context));
             }
             success &= writeNode(MODE2_PATH, getModeValue(context));
             readNode(MODE2_PATH);
             sleepQuietly(100);
+            if (!shouldEnableHardware(context)) {
+                return writeDisabledState();
+            }
             success &= writeNode(APPLY_PATH, "1");
         } else {
-            success &= writeNode(LED_ON_PATH, "0");
-            if (!screenOffOnly) {
-                success &= writeNode(MODE2_PATH, "0");
-                success &= writeNode(APPLY_PATH, "1");
-                success &= writeNode(VDD_PATH, "0");
-            }
+            success &= writeDisabledState();
         }
+        return success;
+    }
+
+    private static boolean writeDisabledState() {
+        boolean success = true;
+        success &= writeNode(LED_ON_PATH, "0");
+        success &= writeNode(MODE2_PATH, "0");
+        success &= writeNode(APPLY_PATH, "1");
+        success &= writeNode(VDD_PATH, "0");
         return success;
     }
 
