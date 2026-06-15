@@ -1,3 +1,7 @@
 # PicassoParts controls the single-color rear Snapdragon logo LED.
 allow system_app sysfs_leds:dir search;
 allow system_app sysfs_aura_logo_led:file rw_file_perms;
+
+# Settings reads zram status from the memory/battery screens.
+allow system_app sysfs_zram:dir r_dir_perms;
+allow system_app sysfs_zram:file r_file_perms;
