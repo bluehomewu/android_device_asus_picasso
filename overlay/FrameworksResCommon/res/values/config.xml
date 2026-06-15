@@ -230,6 +230,7 @@
 
     <!-- picasso does not expose a display white-balance color temperature sensor. -->
     <bool name="config_displayWhiteBalanceAvailable">false</bool>
+    <string name="config_displayWhiteBalanceColorTemperatureSensorName" translatable="false">android.sensor.light</string>
 
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>

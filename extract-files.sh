@@ -32,6 +32,16 @@ function blob_fixup() {
         vendor/etc/audio/picasso/r_submix_audio_policy_configuration_picasso.xml)
             sed -i 's/AUDIO_FORMAT_PCM_32_BIT/AUDIO_FORMAT_PCM_16_BIT/g' "${2}"
             ;;
+        vendor/etc/msm_irqbalance.conf)
+            sed -i 's/IGNORED_IRQ=27,23,38$/&,115,332/' "${2}"
+            ;;
+        vendor/etc/wifi/wpa_supplicant_overlay.conf)
+            sed -i '/^pmf=/d; /^sae_pwe=/d' "${2}"
+            {
+                echo "pmf=1"
+                echo "sae_pwe=2"
+            } >> "${2}"
+            ;;
     esac
 }
 

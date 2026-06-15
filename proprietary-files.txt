@@ -1324,7 +1324,7 @@ vendor/etc/perf/targetresourceconfigs.xml
 vendor/etc/pwr/PowerFeatureConfig.xml
 vendor/etc/pwr/VideoPowerOptFeature.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.servicetracker@1.2-service.xml
-vendor/etc/msm_irqbalance.conf
+vendor/etc/msm_irqbalance.conf|1c2954ac1b7623d31a4b60307387ce780de44b02
 vendor/lib/hw/vendor.qti.hardware.servicetracker@1.2-impl.so
 vendor/lib/libperfconfig.so
 vendor/lib/libperfgluelayer.so
@@ -1880,7 +1880,7 @@ vendor/firmware/hdcpsrm.mdt
 vendor/bin/cnss-daemon
 vendor/etc/wifi/p2p_supplicant_overlay.conf|05f22cd82cbe806d46185a3e5ce69c86cd307128
 vendor/etc/wifi/vendor_cmd.xml|b984ecbb79d2ca0b789274fce3fde793b41d3dc6
-vendor/etc/wifi/wpa_supplicant_overlay.conf|8a08fe916b6e31b73e4eae65f7339f87839d4867
+vendor/etc/wifi/wpa_supplicant_overlay.conf|9d3a3bb1fd0fa34954e28799bf9197065491cac7
 vendor/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini|05e1266173d2172c265cd9431704ac9e5fce41de
 vendor/firmware/Data.msc
 vendor/firmware/amss.bin

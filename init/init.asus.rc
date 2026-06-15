@@ -78,6 +78,12 @@ on property:persist.vendor.zram.enable=${persist.vendor.zram.enable}
     setprop vendor.zram.disksize ${persist.vendor.zram.disksize}
 
 on property:sys.boot_completed=1
+    # IRQ Tuning
+    # IRQ 243: msm_drm
+    # IRQ 240: kgsl_3d0_irq
+    write /proc/irq/243/smp_affinity_list 2
+    write /proc/irq/240/smp_affinity_list 1
+
     # Camera
     mkdir /data/vendor/camera 0770 cameraserver camera
     copy /proc/driver/dualcam_cali /data/vendor/camera/dualcam_cali
