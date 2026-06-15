@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 
 public final class PicassoPartsApplication extends Application {
+    private final ScreenStateReceiver mScreenStateReceiver = new ScreenStateReceiver();
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -17,6 +19,6 @@ public final class PicassoPartsApplication extends Application {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_SCREEN_ON);
-        registerReceiver(new ScreenStateReceiver(), filter);
+        registerReceiver(mScreenStateReceiver, filter);
     }
 }

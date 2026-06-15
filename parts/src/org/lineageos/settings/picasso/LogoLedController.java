@@ -15,6 +15,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 final class LogoLedController {
     static final String PREFS_NAME = "logo_led";
@@ -39,6 +42,9 @@ final class LogoLedController {
     private static final String VDD_PATH = LOGO_LED_BASE_PATH + "/VDD";
     private static final int BOOT_APPLY_ATTEMPTS = 6;
     private static final long BOOT_APPLY_RETRY_DELAY_MS = 2000;
+    private static final long SCREEN_OFF_CONFIRM_DELAY_MS = 1000;
+    private static final ScheduledExecutorService sExecutor =
+            Executors.newSingleThreadScheduledExecutor(r -> new Thread(r, TAG));
 
     private LogoLedController() {
     }
@@ -80,24 +86,25 @@ final class LogoLedController {
     }
 
     static void applySavedState(Context context) {
-        writeState(context, shouldEnableHardware(context));
+        scheduleApplySavedState(context, 0);
     }
 
     static void applySavedStateOnBoot(Context context) {
         Context appContext = context.getApplicationContext();
-        new Thread(() -> {
+        sExecutor.execute(() -> {
             for (int attempt = 0; attempt < BOOT_APPLY_ATTEMPTS; attempt++) {
                 if (writeState(appContext, shouldEnableHardware(appContext))) {
                     return;
                 }
                 sleepQuietly(BOOT_APPLY_RETRY_DELAY_MS);
             }
-        }, TAG + "-BootApply").start();
+        });
     }
 
     static void handleScreenOff(Context context) {
         if (isEnabled(context) && !keepOnScreenOff(context)) {
-            writeState(context, false);
+            scheduleApplySavedState(context, 0);
+            scheduleApplySavedState(context, SCREEN_OFF_CONFIRM_DELAY_MS);
         }
     }
 
@@ -118,7 +125,13 @@ final class LogoLedController {
         return powerManager == null || powerManager.isInteractive();
     }
 
-    private static synchronized boolean writeState(Context context, boolean enabled) {
+    private static void scheduleApplySavedState(Context context, long delayMillis) {
+        Context appContext = context.getApplicationContext();
+        sExecutor.schedule(() -> writeState(appContext, shouldEnableHardware(appContext)),
+                delayMillis, TimeUnit.MILLISECONDS);
+    }
+
+    private static boolean writeState(Context context, boolean enabled) {
         boolean success = true;
         if (enabled) {
             if (!shouldEnableHardware(context)) {
