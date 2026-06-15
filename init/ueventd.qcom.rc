@@ -180,8 +180,8 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware/
 /sys/devices/platform/soc/990000.i2c/i2c-1/1-0038/fts_phone_state 0660 system system
 
 # ASUS thermal hooks
-/sys/class/asuslib set_virtualthermal         0660   system    system
-/sys/class/asuslib/set_virtualthermal         0660   system    system
+/sys/class/asuslib set_virtualthermal         0660   root      root
+/sys/class/asuslib/set_virtualthermal         0660   root      root
 
 # Wakeup statistics consumed by system_suspend
 /sys/class/wakeup/wakeup* name                    0444   system    system
