@@ -38,7 +38,7 @@ ro.bluetooth.a2dp_offload.supported=true
 
 # Camera
 vendor.camera.asus.system=1
-vendor.camera.apk.usingname=org.lineageos.snap
+vendor.camera.apk.usingname=org.lineageos.aperture
 vendor.camera.cam5.crop_region=2:0,0,4032,3024;3:728,546,3304,2478
 vendor.camera.expTimeMax=0
 
