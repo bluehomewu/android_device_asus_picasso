@@ -18,11 +18,12 @@
         android:label="@string/app_name"
         android:icon="@drawable/ic_snapdragon_logo_light"
         android:persistent="true"
-        android:theme="@style/Theme.PicassoParts">
+        android:theme="@style/Theme.SubSettingsBase">
 
         <activity
             android:name=".LogoLedSettingsActivity"
             android:exported="true"
+            android:icon="@drawable/ic_snapdragon_logo_light"
             android:label="@string/logo_led_title"
             android:launchMode="singleTask">
             <intent-filter>

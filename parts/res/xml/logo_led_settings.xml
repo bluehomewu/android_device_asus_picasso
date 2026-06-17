@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:key="enabled"
+        android:title="@string/logo_led_title" />
+
+    <ListPreference
+        android:entries="@array/logo_led_mode_entries"
+        android:entryValues="@array/logo_led_mode_values"
+        android:key="mode"
+        android:title="@string/logo_led_mode_title" />
+
+    <SwitchPreference
+        android:key="keep_on_screen_off"
+        android:title="@string/logo_led_keep_on_screen_off_title" />
+
+    <ListPreference
+        android:entries="@array/logo_led_speed_entries"
+        android:entryValues="@array/logo_led_speed_values"
+        android:key="speed"
+        android:title="@string/logo_led_speed_title" />
+
+</PreferenceScreen>
