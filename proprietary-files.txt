@@ -162,15 +162,6 @@ vendor/etc/acdbdata/Picasso/Picasso_Hdmi_cal.acdb
 vendor/etc/acdbdata/Picasso/Picasso_Headset_cal.acdb
 vendor/etc/acdbdata/Picasso/Picasso_Speaker_cal.acdb
 vendor/etc/acdbdata/Picasso/Picasso_workspaceFile.qwsp
-vendor/etc/audio/picasso/audio_effects_picasso.xml
-vendor/etc/audio/picasso/audio_io_policy_picasso.conf
-vendor/etc/audio/picasso/audio_platform_info_intcodec_picasso.xml
-vendor/etc/audio/picasso/audio_policy_configuration_picasso.xml
-vendor/etc/audio/picasso/audio_policy_volumes_picasso.xml
-vendor/etc/audio/picasso/default_volume_tables_picasso.xml
-vendor/etc/audio/picasso/mixer_paths_picasso.xml
-vendor/etc/audio/picasso/r_submix_audio_policy_configuration_picasso.xml
-vendor/etc/audio/picasso/sound_trigger_mixer_paths_picasso.xml
 vendor/lib/hw/audio.primary.lahaina.so
 vendor/lib/soundfx/libasphere.so
 vendor/lib/soundfx/libqcbassboost.so

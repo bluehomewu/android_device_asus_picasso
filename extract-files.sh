@@ -26,12 +26,6 @@ source "${HELPER}"
 
 function blob_fixup() {
     case "${1}" in
-        vendor/etc/audio/picasso/audio_policy_configuration_picasso.xml)
-            perl -0pi -e 's@\n\s*<!-- A2DP Audio HAL -->\s*<module name="a2dp" halVersion="2\.0">.*?</module>\n@\n@s' "${2}"
-            ;;
-        vendor/etc/audio/picasso/r_submix_audio_policy_configuration_picasso.xml)
-            sed -i 's/AUDIO_FORMAT_PCM_32_BIT/AUDIO_FORMAT_PCM_16_BIT/g' "${2}"
-            ;;
         vendor/etc/msm_irqbalance.conf)
             sed -i 's/IGNORED_IRQ=27,23,38$/&,115,332/' "${2}"
             ;;
