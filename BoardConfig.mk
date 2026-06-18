@@ -176,7 +176,6 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     sla.ko \
     slimbus-ngd.ko \
     slimbus.ko \
-    snd-soc-es928x.ko \
     snd_event_dlkm.ko \
     stub_dlkm.ko \
     swr_ctrl_dlkm.ko \
@@ -201,7 +200,7 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     wcd938x_slave_dlkm.ko \
     wcd9xxx_dlkm.ko \
     wcd_core_dlkm.ko \
-    wlan.ko \
+    qca_cld3_wlan.ko \
     wsa883x_dlkm.ko \
     wsa_macro_dlkm.ko \
     xc4000.ko \
