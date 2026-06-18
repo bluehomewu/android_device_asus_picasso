@@ -231,6 +231,38 @@
     <!-- picasso does not expose a display white-balance color temperature sensor. -->
     <bool name="config_displayWhiteBalanceAvailable">false</bool>
     <string name="config_displayWhiteBalanceColorTemperatureSensorName" translatable="false">android.sensor.light</string>
+    <array name="config_displayWhiteBalanceHighLightAmbientBrightnesses">
+        <item>0.0</item>
+        <item>1.0</item>
+    </array>
+    <array name="config_displayWhiteBalanceHighLightAmbientBrightnessesStrong">
+        <item>0.0</item>
+        <item>1.0</item>
+    </array>
+    <array name="config_displayWhiteBalanceHighLightAmbientBiases">
+        <item>0.0</item>
+        <item>1.0</item>
+    </array>
+    <array name="config_displayWhiteBalanceHighLightAmbientBiasesStrong">
+        <item>0.0</item>
+        <item>1.0</item>
+    </array>
+    <array name="config_displayWhiteBalanceAmbientColorTemperatures">
+        <item>6500.0</item>
+        <item>6501.0</item>
+    </array>
+    <array name="config_displayWhiteBalanceDisplayColorTemperatures">
+        <item>6500.0</item>
+        <item>6500.0</item>
+    </array>
+    <array name="config_displayWhiteBalanceStrongAmbientColorTemperatures">
+        <item>6500.0</item>
+        <item>6501.0</item>
+    </array>
+    <array name="config_displayWhiteBalanceStrongDisplayColorTemperatures">
+        <item>6500.0</item>
+        <item>6500.0</item>
+    </array>
 
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>
