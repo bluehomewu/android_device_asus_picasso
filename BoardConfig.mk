@@ -130,7 +130,6 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := \
     bt_fm_slim.ko \
     btpower.ko \
     camera.ko \
-    cs35l45_i2c_dlkm.ko \
     e4000.ko \
     fc0011.ko \
     fc0012.ko \
