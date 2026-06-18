@@ -169,10 +169,9 @@ service asus_zram /vendor/bin/init.asus.zram.sh
     seclabel u:r:vendor_qti_init_shell:s0
     oneshot
 
-service vendor.camera-provider-2-5 /vendor/bin/hw/android.hardware.camera.provider@2.5-service_64
+service vendor.camera-provider-2-4 /vendor/bin/hw/android.hardware.camera.provider@2.4-service_64
     override
     interface android.hardware.camera.provider@2.4::ICameraProvider legacy/0
-    interface android.hardware.camera.provider@2.5::ICameraProvider legacy/0
     interface vendor.asus.bspcam@1.0::IAsusBspCameraInterface default
     interface vendor.qti.hardware.camera.postproc@1.0::IPostProcService camerapostprocservice
     class hal
