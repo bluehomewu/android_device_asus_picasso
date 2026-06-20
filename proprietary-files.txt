@@ -1236,7 +1236,7 @@ vendor/etc/media_codecs_performance_lahaina.xml
 vendor/etc/media_codecs_performance.xml
 vendor/etc/media_codecs.xml
 vendor/etc/media_profiles_lahaina.xml
-vendor/etc/media_profiles_V1_0.xml
+vendor/etc/media_profiles_V1_0.xml|1489f024fbc7c6cd1a0f7ebb7fb32a5ae2f63f4e
 vendor/etc/media_profiles_vendor.xml
 vendor/etc/media_profiles.xml
 vendor/etc/video_system_specs.json
