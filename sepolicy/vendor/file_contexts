@@ -12,6 +12,9 @@
 /(vendor|system/vendor)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature-service    u:object_r:hal_graphics_composer_default_exec:s0
 /(vendor|system/vendor)/bin/irisConfig                                                       u:object_r:iris_config_exec:s0
 
+# Media
+/(vendor|system/vendor)/bin/hw/vendor\.qti\.media\.c2@1\.0-service    u:object_r:mediacodec_exec:s0
+
 # Livedisplay
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.picasso               u:object_r:hal_lineage_livedisplay_qti_exec:s0
 

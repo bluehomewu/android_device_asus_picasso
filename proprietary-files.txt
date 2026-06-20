@@ -1220,14 +1220,17 @@ system_ext/lib/libmmosal.so
 system_ext/lib/libmmparser_lite.so
 system_ext/lib64/libmmosal.so
 system_ext/lib64/libmmparser_lite.so
+vendor/bin/hw/vendor.qti.media.c2@1.0-service|7e81e897914d223b079fc04605efa00ac1de5d79
 vendor/bin/hw/qconfigservice
 vendor/bin/init.qti.media.sh
 vendor/etc/init/init.qti.media.rc
+vendor/etc/init/vendor.qti.media.c2@1.0-service.rc|11209316ba8aae64b689217bc13b0804f6620678
 vendor/etc/init/qconfig.rc
 vendor/etc/media_lahaina/video_system_specs.json
 vendor/etc/media/video_system_specs.json
 vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy
 vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy
+vendor/etc/vintf/manifest/c2_manifest_vendor.xml|0e532bf1c7d6a0ee2e7e03a9cc3283a5bffc7f8e
 vendor/etc/media_codecs_lahaina.xml
 vendor/etc/media_codecs_performance_lahaina.xml
 vendor/etc/media_codecs_performance.xml
