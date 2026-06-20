@@ -1,3 +1,6 @@
 # Camera
 ro.camera.req.fmq.size          u:object_r:vendor_camera_prop:s0
 ro.camera.res.fmq.size          u:object_r:vendor_camera_prop:s0
+
+# Display (Pixelworks)
+persist.sys.display.iris.absent    u:object_r:picasso_display_prop:s0 exact bool
