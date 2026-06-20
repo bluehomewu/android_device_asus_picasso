@@ -152,8 +152,6 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.lights-service.qti \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
     libdisplayconfig.qti \
     libdisplayconfig.system.qti \
     libmemutils \
@@ -163,7 +161,7 @@ PRODUCT_PACKAGES += \
     libsdmutils \
     libtinyxml \
     lights.qcom \
-    memtrack.default \
+    vendor.qti.hardware.memtrack-service \
     vendor.display.config@1.12.vendor \
     vendor.display.config@1.13.vendor \
     vendor.display.config@1.14.vendor \
