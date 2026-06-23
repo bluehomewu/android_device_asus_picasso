@@ -459,6 +459,8 @@ vendor/lib/libmmcamera_lscv35.so
 vendor/lib/libmmcamera_mfnr.so
 vendor/lib/libmmcamera_mfnr_t4.so
 vendor/lib/libmmcamera_pdpc.so
+vendor/lib/liboptical_zoom_dc.so
+vendor/lib/liboptical_zoom_vs.so
 vendor/lib/libopencv.so
 vendor/lib/libopencv3a.so
 vendor/lib/libopestriping.so
@@ -466,6 +468,8 @@ vendor/lib/libqll10.so
 vendor/lib/libqllengine.so
 vendor/lib/libswregistrationalgo.so
 vendor/lib/libtfestriping.so
+vendor/lib/libtriplecam_optical_zoom_control.so
+vendor/lib/libtriplecam_video_optical_zoom.so
 vendor/lib/libxditk_arch.so
 vendor/lib/libxditk_ditArchLIB.so
 vendor/lib/libxditk_ditBSP.so
@@ -661,6 +665,8 @@ vendor/lib64/libmmcamera_pdpc.so
 vendor/lib/libmpbase.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libnanopb.so
+vendor/lib64/liboptical_zoom_dc.so
+vendor/lib64/liboptical_zoom_vs.so
 vendor/lib64/libofflinedump.so
 vendor/lib64/libofflinelog.so
 vendor/lib64/libopencv.so
@@ -673,6 +679,8 @@ vendor/lib64/libqll10.so
 vendor/lib64/libqllengine.so
 vendor/lib64/libswregistrationalgo.so
 vendor/lib64/libsynx.so
+vendor/lib64/libtriplecam_optical_zoom_control.so
+vendor/lib64/libtriplecam_video_optical_zoom.so
 vendor/lib64/libtfestriping.so
 vendor/lib64/libthreadutils.so
 vendor/lib64/libxditk_DIT_Manager.so
