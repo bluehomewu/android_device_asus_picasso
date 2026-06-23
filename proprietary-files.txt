@@ -453,7 +453,7 @@ vendor/lib/libipebpsstriping.so
 vendor/lib/libjpege.so
 vendor/lib/libmmcamera_bestats.so
 vendor/lib/libmmcamera_cac3.so
-vendor/lib/libmmcamera_faceproc.so
+vendor/lib/libmmcamera_faceproc.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera_faceproc2.so
 vendor/lib/libmmcamera_lscv35.so
 vendor/lib/libmmcamera_mfnr.so
