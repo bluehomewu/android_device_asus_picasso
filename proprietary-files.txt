@@ -595,6 +595,7 @@ vendor/lib64/com.qti.feature2.demux.so
 vendor/lib64/com.qti.feature2.derivedoffline.so
 vendor/lib64/com.qti.feature2.frameselect.so
 vendor/lib64/com.qti.feature2.fusion.so
+vendor/lib/com.qti.feature2.generic.so
 vendor/lib64/com.qti.feature2.generic.so
 vendor/lib64/com.qti.feature2.gs.cedros.so
 vendor/lib64/com.qti.feature2.gs.kamorta.so
