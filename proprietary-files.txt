@@ -766,6 +766,7 @@ vendor/firmware/ipa_fws.mdt
 vendor/lib/libdsutils.so
 vendor/lib/libconfigdb.so
 vendor/lib64/libconfigdb.so
+vendor/lib/libdsi_netctrl.so
 vendor/lib64/libdsi_netctrl.so
 vendor/lib64/libdsutils.so
 vendor/lib64/libnetmgr.so
@@ -774,6 +775,8 @@ vendor/lib64/libnetmgr_nr_fusion.so
 vendor/lib64/libnetmgr_rmnet_ext.so
 vendor/lib64/libnlnetmgr.so
 vendor/lib64/libqcmaputils.so
+vendor/lib/libqdi.so
+vendor/lib/libqdp.so
 vendor/lib64/libqdi.so
 vendor/lib64/libqdp.so
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so
@@ -1256,6 +1259,8 @@ vendor/lib64/unnhal-acc-htp.so
 
 # PD
 vendor/bin/pd-mapper
+vendor/lib/libpdmapper.so
+vendor/lib/libpdnotifier.so
 vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
 vendor/lib64/libQnnHtpStub.so
@@ -1271,6 +1276,7 @@ vendor/lib64/libSuperSensorProcessorCWrapper.so
 # Peripheral Manager
 vendor/bin/pm-proxy
 vendor/bin/pm-service
+vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
 # Power Off Alarm
@@ -1320,6 +1326,7 @@ vendor/etc/qcril_database/upgrade/other/7_version_update_ecc_table_qcrilnr.sql
 vendor/etc/qcril_database/qcrilNr.db
 vendor/etc/seccomp_policy/qcrilnr@2.0.policy
 vendor/lib64/deviceInfoServiceModuleNr.so
+vendor/lib/liblqe.so
 vendor/lib64/liblqe.so
 vendor/lib64/libqcrilNrFramework.so
 vendor/lib64/libqcrilNrLogger.so
@@ -1337,6 +1344,7 @@ vendor/lib64/qcrilMarshal.so
 vendor/lib64/qcrild_libqcrilnrutils.so
 vendor/lib/qtiril-utils.so
 vendor/lib64/qtiril-utils.so
+vendor/lib/qtiwakelock.so
 vendor/lib64/qtiwakelock.so
 vendor/lib64/vendor.qti.hardware.data.connection@1.0.so
 vendor/lib64/vendor.qti.hardware.data.connection@1.1.so
@@ -1702,6 +1710,7 @@ vendor/lib64/libthermalclient.so
 vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
+vendor/lib/libtime_genoff.so
 vendor/lib64/libtime_genoff.so
 
 # VM
