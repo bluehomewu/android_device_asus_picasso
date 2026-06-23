@@ -670,7 +670,9 @@ vendor/lib64/libmpbase.so
 vendor/lib64/libnanopb.so
 vendor/lib64/liboptical_zoom_dc.so
 vendor/lib64/liboptical_zoom_vs.so
+vendor/lib/libofflinedump.so
 vendor/lib64/libofflinedump.so
+vendor/lib/libofflinelog.so
 vendor/lib64/libofflinelog.so
 vendor/lib64/libopencv.so
 vendor/lib64/libopencv3a.so
