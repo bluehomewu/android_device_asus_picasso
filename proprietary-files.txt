@@ -91,12 +91,8 @@ vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 # Battery
 vendor/bin/firmware_version.sh
 vendor/bin/gaugeIC_status
-vendor/bin/hw/android.hardware.health@2.1-service
 vendor/bin/read_battery_id_status
-vendor/etc/init/android.hardware.health@2.1-service.rc
-vendor/lib/hw/android.hardware.health@2.0-impl-2.1-qti.so
 vendor/lib/libbatterylistener.so
-vendor/lib64/hw/android.hardware.health@2.0-impl-2.1-qti.so
 vendor/lib64/libbatterylistener.so
 
 # Adreno
