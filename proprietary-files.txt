@@ -92,8 +92,6 @@ vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 vendor/bin/firmware_version.sh
 vendor/bin/gaugeIC_status
 vendor/bin/read_battery_id_status
-vendor/lib/libbatterylistener.so
-vendor/lib64/libbatterylistener.so
 
 # Adreno
 vendor/app/com.qualcomm.qti.gpudrivers.lahaina.api30/com.qualcomm.qti.gpudrivers.lahaina.api30.apk;PRESIGNED
