@@ -160,7 +160,6 @@ PRODUCT_PACKAGES += \
     libsdmcore \
     libsdmutils \
     libtinyxml \
-    lights.qcom \
     vendor.qti.hardware.memtrack-service \
     vendor.display.config@1.12.vendor \
     vendor.display.config@1.13.vendor \
