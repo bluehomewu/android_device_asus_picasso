@@ -701,6 +701,7 @@ vendor/lib64/libxditk_ditArchLIB.so
 vendor/lib64/libxditk_ditBSP.so
 vendor/lib64/libxditk_ditBSP_JNI.so
 vendor/lib64/style.cng
+vendor/lib/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 
 # Charging
