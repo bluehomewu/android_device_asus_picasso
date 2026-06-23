@@ -1020,7 +1020,9 @@ vendor/lib64/hw/android.hardware.gnss@2.1-impl-qti.so
 vendor/lib64/libbatching.so
 vendor/lib64/libgeofencing.so
 vendor/lib64/libgnss.so
+vendor/lib/libgps.utils.so
 vendor/lib64/libgps.utils.so
+vendor/lib/libloc_core.so
 vendor/lib64/libloc_core.so
 vendor/lib64/liblocation_api.so
 
