@@ -658,6 +658,7 @@ vendor/lib64/libmmcamera_lscv35.so
 vendor/lib64/libmmcamera_mfnr.so
 vendor/lib64/libmmcamera_mfnr_t4.so
 vendor/lib64/libmmcamera_pdpc.so
+vendor/lib/libmpbase.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libnanopb.so
 vendor/lib64/libofflinedump.so
