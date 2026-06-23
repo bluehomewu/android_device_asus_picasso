@@ -345,6 +345,8 @@ vendor/firmware/evass.b18
 vendor/firmware/evass.b19
 vendor/firmware/evass.mbn
 vendor/firmware/evass.mdt
+vendor/lib/libcvp_common.so
+vendor/lib/libcvp2_1.so
 vendor/lib64/libcvp_common.so
 vendor/lib64/libcvp2_1.so
 vendor/lib64/libcvpcpuRev_skel.so
