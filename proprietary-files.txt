@@ -1726,9 +1726,11 @@ vendor/firmware/vpu20_4v_unsigned.mbn
 
 # Video
 vendor/lib/libfastcrc.so
+vendor/lib/libpowercore.so
 vendor/lib/libstreamparser.so
 vendor/lib/libvideooptfeature.so
 vendor/lib/libvideoutils.so
+vendor/lib64/libpowercore.so
 vendor/lib64/libvideooptfeature.so
 
 # Vibrator

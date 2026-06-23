@@ -19,6 +19,7 @@ from extract_utils.main import (
 
 namespace_imports = [
     'hardware/qcom-caf/sm8350',
+    'hardware/qcom-caf/common/libqti-perfd-client',
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/dataservices',
     'vendor/qcom/opensource/display',
