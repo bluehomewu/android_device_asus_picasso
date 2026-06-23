@@ -1231,9 +1231,13 @@ vendor/bin/pd-mapper
 vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
 vendor/lib64/libQnnHtpStub.so
+vendor/lib/libSuperSensor.so
 vendor/lib64/libSuperSensor.so
+vendor/lib/libSuperSensorCPU.so
 vendor/lib64/libSuperSensorCPU.so
+vendor/lib/libSuperSensorProcessor.so
 vendor/lib64/libSuperSensorProcessor.so
+vendor/lib/libSuperSensorProcessorCWrapper.so
 vendor/lib64/libSuperSensorProcessorCWrapper.so
 
 # Peripheral Manager
