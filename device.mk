@@ -201,12 +201,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/privapp-permissions-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-asus-product.xml
 
 # Initialization
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
-
 PRODUCT_PACKAGES += \
     fstab.battery \
     fstab.default \
+    fstab.default.vendor_ramdisk \
     init.asus.rc \
     init.asus.recovery.rc \
     init.class_main.sh \
