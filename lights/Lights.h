@@ -6,9 +6,7 @@
 #pragma once
 
 #include <aidl/android/hardware/light/BnLights.h>
-#include <hardware/hardware.h>
-#include <hardware/lights.h>
-#include <map>
+#include <mutex>
 
 namespace aidl {
 namespace android {
@@ -22,9 +20,14 @@ class Lights : public BnLights {
       ndk::ScopedAStatus getLights(std::vector<HwLight>* types) override;
 
     private:
-      std::map<int, light_device_t*> mLights;
       std::vector<HwLight> mAvailableLights;
-      int maxLights;
+      HwLightState mBatteryState;
+      HwLightState mNotificationsState;
+      HwLightState mAttentionState;
+      std::mutex mLock;
+
+      bool supportsLight(int id);
+      void updateNotificationLed();
 };
 
 }  // namespace light

@@ -4,103 +4,175 @@
  */
 
 #include "Lights.h"
-#include <log/log.h>
+
 #include <android-base/logging.h>
+#include <android-base/file.h>
+#include <array>
+#include <string>
+#include <unistd.h>
 
 namespace aidl {
 namespace android {
 namespace hardware {
 namespace light {
 
-const static std::map<LightType, const char*> kLogicalLights = {
-    {LightType::BACKLIGHT,     LIGHT_ID_BACKLIGHT},
-    {LightType::KEYBOARD,      LIGHT_ID_KEYBOARD},
-    {LightType::BUTTONS,       LIGHT_ID_BUTTONS},
-    {LightType::BATTERY,       LIGHT_ID_BATTERY},
-    {LightType::NOTIFICATIONS, LIGHT_ID_NOTIFICATIONS},
-    {LightType::ATTENTION,     LIGHT_ID_ATTENTION},
-    {LightType::BLUETOOTH,     LIGHT_ID_BLUETOOTH},
-    {LightType::WIFI,          LIGHT_ID_WIFI}
+namespace {
+
+constexpr const char* kLedRoot = "/sys/class/leds";
+
+struct LedChannel {
+    const char* name;
+    int value;
 };
 
-light_device_t* getLightDevice(const char* name) {
-    light_device_t* lightDevice;
-    const hw_module_t* hwModule = NULL;
-    int ret = hw_get_module (LIGHTS_HARDWARE_MODULE_ID, &hwModule);
-    if (ret == 0) {
-        ret = hwModule->methods->open(hwModule, name,
-            reinterpret_cast<hw_device_t**>(&lightDevice));
-        if (ret != 0) {
-            ALOGE("light_open %s %s failed: %d", LIGHTS_HARDWARE_MODULE_ID, name, ret);
-        }
-    } else {
-        ALOGE("hw_get_module %s %s failed: %d", LIGHTS_HARDWARE_MODULE_ID, name, ret);
+std::string ledPath(const std::string& led, const std::string& node) {
+    return std::string(kLedRoot) + "/" + led + "/" + node;
+}
+
+bool nodeExists(const std::string& path) {
+    return access(path.c_str(), F_OK) == 0;
+}
+
+bool writeNode(const std::string& path, const std::string& value) {
+    if (!nodeExists(path)) {
+        return false;
     }
-    if (ret == 0) {
-        return lightDevice;
-    } else {
-        ALOGE("Light passthrough failed to load legacy HAL.");
-        return nullptr;
+
+    if (!::android::base::WriteStringToFile(value, path)) {
+        PLOG(WARNING) << "Failed to write " << path;
+        return false;
+    }
+
+    return true;
+}
+
+bool hasRgbLed() {
+    return nodeExists(ledPath("red", "brightness")) ||
+           nodeExists(ledPath("green", "brightness")) ||
+           nodeExists(ledPath("blue", "brightness"));
+}
+
+bool isLit(const HwLightState& state) {
+    return (state.color & 0x00ffffff) != 0;
+}
+
+std::array<LedChannel, 3> channelsFromColor(int color) {
+    return {{
+        {"red", (color >> 16) & 0xff},
+        {"green", (color >> 8) & 0xff},
+        {"blue", color & 0xff},
+    }};
+}
+
+void setLedChannel(const LedChannel& channel, FlashMode mode, int onMs, int offMs) {
+    const std::string led(channel.name);
+
+    if (channel.value == 0) {
+        writeNode(ledPath(led, "trigger"), "none");
+        writeNode(ledPath(led, "breath"), "0");
+        writeNode(ledPath(led, "brightness"), "0");
+        return;
+    }
+
+    switch (mode) {
+        case FlashMode::TIMED:
+            writeNode(ledPath(led, "breath"), "0");
+            writeNode(ledPath(led, "trigger"), "timer");
+            writeNode(ledPath(led, "delay_on"), std::to_string(onMs > 0 ? onMs : 500));
+            writeNode(ledPath(led, "delay_off"), std::to_string(offMs > 0 ? offMs : 500));
+            writeNode(ledPath(led, "brightness"), std::to_string(channel.value));
+            break;
+        case FlashMode::HARDWARE:
+            if (!writeNode(ledPath(led, "breath"), "1")) {
+                writeNode(ledPath(led, "trigger"), "none");
+            }
+            writeNode(ledPath(led, "brightness"), std::to_string(channel.value));
+            break;
+        case FlashMode::NONE:
+        default:
+            writeNode(ledPath(led, "trigger"), "none");
+            writeNode(ledPath(led, "breath"), "0");
+            writeNode(ledPath(led, "brightness"), std::to_string(channel.value));
+            break;
     }
 }
 
-Lights::Lights() {
-    std::map<int, light_device_t*> lights;
-    std::vector<HwLight> availableLights;
-    int lightCount =0;
-    for(auto const &pair : kLogicalLights) {
-        LightType type = pair.first;
-        const char* name = pair.second;
-        light_device_t* lightDevice = getLightDevice(name);
-        lightCount++;
-        if (lightDevice != nullptr) {
-            HwLight hwLight{};
-            hwLight.id = (int)type;
-            hwLight.type = type;
-            hwLight.ordinal = 0;
-            lights[hwLight.id] = lightDevice;
-            availableLights.emplace_back(hwLight);
-        }
+void setRgbLed(const HwLightState& state) {
+    for (const auto& channel : channelsFromColor(state.color)) {
+        setLedChannel(channel, state.flashMode, state.flashOnMs, state.flashOffMs);
     }
-    mAvailableLights = availableLights;
-    mLights = lights;
-    maxLights = lightCount;
+}
+
+HwLight makeLight(LightType type) {
+    return {
+        .id = static_cast<int32_t>(type),
+        .ordinal = 0,
+        .type = type,
+    };
+}
+
+}  // namespace
+
+Lights::Lights() {
+    if (hasRgbLed()) {
+        mAvailableLights.emplace_back(makeLight(LightType::BATTERY));
+        mAvailableLights.emplace_back(makeLight(LightType::NOTIFICATIONS));
+        mAvailableLights.emplace_back(makeLight(LightType::ATTENTION));
+    } else {
+        LOG(WARNING) << "No RGB notification LED found";
+    }
 }
 
 ndk::ScopedAStatus Lights::setLightState(int id, const HwLightState& state) {
-    if (id >= maxLights) {
-        ALOGE("Invalid Light id : %d", id);
+    if (!supportsLight(id)) {
+        LOG(ERROR) << "Light not supported: " << id;
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
-    auto it = mLights.find(id);
-    if (it == mLights.end()) {
-        ALOGE("Light not supported");
-        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        switch (static_cast<LightType>(id)) {
+            case LightType::BATTERY:
+                mBatteryState = state;
+                break;
+            case LightType::NOTIFICATIONS:
+                mNotificationsState = state;
+                break;
+            case LightType::ATTENTION:
+                mAttentionState = state;
+                break;
+            default:
+                return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+        }
+
+        updateNotificationLed();
     }
-    light_device_t* hwLight = it->second;
-    light_state_t legacyState {
-        .color = static_cast<unsigned int>(state.color),
-        .flashMode = static_cast<int>(state.flashMode),
-        .flashOnMS = state.flashOnMs,
-        .flashOffMS = state.flashOffMs,
-        .brightnessMode = static_cast<int>(state.brightnessMode),
-    };
-    int ret = hwLight->set_light(hwLight, &legacyState);
-    switch (ret) {
-        case -ENOSYS:
-            return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
-        case 0:
-            return ndk::ScopedAStatus::ok();
-        default:
-            return ndk::ScopedAStatus::fromServiceSpecificError(ret);
-    }
+
+    return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Lights::getLights(std::vector<HwLight>* lights) {
-    for (auto i = mAvailableLights.begin(); i != mAvailableLights.end(); i++) {
-        lights->push_back(*i);
+    for (const auto& light : mAvailableLights) {
+        lights->push_back(light);
     }
     return ndk::ScopedAStatus::ok();
+}
+
+bool Lights::supportsLight(int id) {
+    for (const auto& light : mAvailableLights) {
+        if (light.id == id) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void Lights::updateNotificationLed() {
+    const HwLightState state = isLit(mNotificationsState) ? mNotificationsState
+                             : isLit(mAttentionState)     ? mAttentionState
+                             : isLit(mBatteryState)       ? mBatteryState
+                                                          : HwLightState();
+    setRgbLed(state);
 }
 
 }  // namespace light

@@ -178,6 +178,23 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware/
 /sys/class/leds/aura_sync speed     0660   system    system
 /sys/class/leds/aura_sync apply     0660   system    system
 
+# RGB notification/battery LED
+/sys/class/leds/red brightness      0664   system    system
+/sys/class/leds/red trigger         0664   system    system
+/sys/class/leds/red delay_on        0664   system    system
+/sys/class/leds/red delay_off       0664   system    system
+/sys/class/leds/red breath          0664   system    system
+/sys/class/leds/green brightness    0664   system    system
+/sys/class/leds/green trigger       0664   system    system
+/sys/class/leds/green delay_on      0664   system    system
+/sys/class/leds/green delay_off     0664   system    system
+/sys/class/leds/green breath        0664   system    system
+/sys/class/leds/blue brightness     0664   system    system
+/sys/class/leds/blue trigger        0664   system    system
+/sys/class/leds/blue delay_on       0664   system    system
+/sys/class/leds/blue delay_off      0664   system    system
+/sys/class/leds/blue breath         0664   system    system
+
 # Touch call state helper
 /sys/devices/platform/soc/990000.i2c/i2c-1/1-0038 fts_phone_state 0660 system system
 /sys/devices/platform/soc/990000.i2c/i2c-1/1-0038/fts_phone_state 0660 system system
