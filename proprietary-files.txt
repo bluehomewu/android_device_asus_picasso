@@ -981,7 +981,6 @@ vendor/app/QFingerprintService/QFingerprintService.apk
 vendor/bin/LightFingerprintPosition.sh
 vendor/bin/qfp-daemon
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
 vendor/etc/init/init_qfp_daemon.rc
 vendor/etc/permissions/qti_fingerprint_interface.xml
 vendor/etc/qfp_config.txt
