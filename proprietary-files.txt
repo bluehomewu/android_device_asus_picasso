@@ -631,7 +631,7 @@ vendor/lib64/libarcsoft_picselfie_algorithm.so
 vendor/lib64/libarcsoft_piczoom.so
 vendor/lib64/libarcsoft_qnnhtp.so
 vendor/lib64/libarcsoft_rer.so
-vendor/lib64/libarcsoft_super_night_raw.so
+vendor/lib64/libarcsoft_super_night_raw.so;DISABLE_CHECKELF
 vendor/lib64/libarcsoft_triple_sat.so
 vendor/lib64/libarcsoft_triple_zoomtranslator.so
 vendor/lib/libbitmlengine.so
