@@ -86,10 +86,10 @@ TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE := true
 # FSConfig
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
-# Health
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/asuslib/charging_suspend_en
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_ENABLED := 0
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_DISABLED := 1
+# Lineage Health
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/asuslib/charging_suspend_en)
+$(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
+$(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
