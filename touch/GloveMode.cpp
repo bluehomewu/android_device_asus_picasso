@@ -7,33 +7,39 @@
 
 #include "GloveMode.h"
 
-#include <fstream>
+#include <android-base/file.h>
+#include <android-base/logging.h>
+#include <android-base/strings.h>
 
+namespace aidl {
 namespace vendor {
 namespace lineage {
 namespace touch {
-namespace V1_0 {
-namespace implementation {
 
 const std::string kGloveModePath = "/proc/driver/glove";
 
-Return<bool> GloveMode::isEnabled() {
-    std::ifstream file(kGloveModePath);
-    std::string line;
-    while (getline(file, line)) {
-        if (line == "Glove Mode: On") return true;
+ndk::ScopedAStatus GloveMode::getEnabled(bool* _aidl_return) {
+    std::string buf;
+    if (!android::base::ReadFileToString(kGloveModePath, &buf)) {
+        LOG(ERROR) << "Failed to read " << kGloveModePath;
+        *_aidl_return = false;
+        return ndk::ScopedAStatus::fromExceptionCode(EX_SERVICE_SPECIFIC);
     }
-    return false;
+
+    *_aidl_return = android::base::Trim(buf).find("Glove Mode: On") != std::string::npos;
+    return ndk::ScopedAStatus::ok();
 }
 
-Return<bool> GloveMode::setEnabled(bool enabled) {
-    std::ofstream file(kGloveModePath);
-    file << (enabled ? "1" : "0");
-    return !file.fail();
+ndk::ScopedAStatus GloveMode::setEnabled(bool enabled) {
+    if (!android::base::WriteStringToFile(enabled ? "1" : "0", kGloveModePath)) {
+        LOG(ERROR) << "Failed to write " << kGloveModePath;
+        return ndk::ScopedAStatus::fromExceptionCode(EX_SERVICE_SPECIFIC);
+    }
+
+    return ndk::ScopedAStatus::ok();
 }
 
-}  // namespace implementation
-}  // namespace V1_0
 }  // namespace touch
 }  // namespace lineage
 }  // namespace vendor
+}  // namespace aidl

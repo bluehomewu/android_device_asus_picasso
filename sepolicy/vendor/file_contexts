@@ -25,4 +25,4 @@
 /dev/asus2ndGyroSensor      u:object_r:sensors_device:s0
 
 # Touch
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.picasso    u:object_r:hal_lineage_touch_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch-service\.picasso    u:object_r:hal_lineage_touch_default_exec:s0

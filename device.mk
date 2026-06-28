@@ -404,7 +404,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.picasso
+    vendor.lineage.touch-service.picasso
 
 # USB
 $(call inherit-product, vendor/qcom/opensource/usb/vendor_product.mk)

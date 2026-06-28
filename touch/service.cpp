@@ -3,30 +3,34 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define LOG_TAG "vendor.lineage.touch@1.0-service.picasso"
+#define LOG_TAG "vendor.lineage.touch-service.picasso"
 
 #include <android-base/logging.h>
-#include <hidl/HidlTransportSupport.h>
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
+
+#include <cstdlib>
+#include <memory>
+#include <string>
 
 #include "GloveMode.h"
 
-using ::vendor::lineage::touch::V1_0::IGloveMode;
-using ::vendor::lineage::touch::V1_0::implementation::GloveMode;
+using ::aidl::vendor::lineage::touch::GloveMode;
+using ::aidl::vendor::lineage::touch::IGloveMode;
 
 int main() {
-    android::sp<IGloveMode> gloveMode = new GloveMode();
+    ABinderProcess_setThreadPoolMaxThreadCount(0);
 
-    android::hardware::configureRpcThreadpool(1, true /*callerWillJoin*/);
+    std::shared_ptr<GloveMode> gloveMode = ndk::SharedRefBase::make<GloveMode>();
+    const std::string instance = std::string() + IGloveMode::descriptor + "/default";
 
-    if (gloveMode->registerAsService() != android::OK) {
+    if (AServiceManager_addService(gloveMode->asBinder().get(), instance.c_str()) != STATUS_OK) {
         LOG(ERROR) << "Cannot register touchscreen glove HAL service.";
-        return 1;
+        return EXIT_FAILURE;
     }
 
     LOG(INFO) << "Touchscreen HAL service ready.";
 
-    android::hardware::joinRpcThreadpool();
-
-    LOG(ERROR) << "Touchscreen HAL service failed to join thread pool.";
-    return 1;
+    ABinderProcess_joinThreadPool();
+    return EXIT_FAILURE;
 }
