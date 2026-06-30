@@ -385,6 +385,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor \
     ims-ext-common \
     ims_ext_common.xml \
+    picasso-ril-overrides \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml \
     qti-telephony-utils \

@@ -9,3 +9,11 @@ prebuilt_etc_xml {
     sub_dir: "vintf/manifest",
     soc_specific: true,
 }
+
+prebuilt_etc {
+    name: "picasso-ril-overrides",
+    src: "configs/ril/empty",
+    installable: false,
+    overrides: ["libreference-ril"],
+    soc_specific: true,
+}
