@@ -3,7 +3,6 @@
      SPDX-License-Identifier: BSD-3-Clause
 -->
 <manifest version="1.0" type="device" target-level="7">
-    <kernel target-level="7" />
     <!-- Audio -->
     <hal format="hidl">
         <name>android.hardware.audio</name>
