@@ -110,11 +110,8 @@ PRODUCT_PACKAGES += \
 
 # Boot Control
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl-qti \
-    android.hardware.boot@1.1-impl-qti.recovery \
-    android.hardware.boot@1.1-service \
-    bootctrl.lahaina \
-    bootctrl.lahaina.recovery
+    android.hardware.boot-service.picasso \
+    android.hardware.boot-service.picasso.recovery
 
 # Camera
 PRODUCT_COPY_FILES += \
