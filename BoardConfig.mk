@@ -214,7 +214,6 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := \
 
 TARGET_KERNEL_CONFIG := vendor/$(PRODUCT_DEVICE)_defconfig
 TARGET_KERNEL_SOURCE := kernel/asus/sm8350
-TARGET_KERNEL_NO_GCC := true
 
 # Partitions
 -include vendor/lineage/config/BoardConfigReservedSize.mk
