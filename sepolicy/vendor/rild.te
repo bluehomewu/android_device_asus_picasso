@@ -1,5 +1,6 @@
 set_prop(rild, log_prop)
 set_prop(rild, vendor_gps_prop)
 set_prop(rild, vendor_radio_prop)
+get_prop(rild, vendor_ims_prop)
 
 allow rild vendor_proc_evt:file rw_file_perms;
