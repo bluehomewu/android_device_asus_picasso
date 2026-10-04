@@ -26,6 +26,8 @@
 # Sensors
 /dev/asus2ndAccelSensor     u:object_r:sensors_device:s0
 /dev/asus2ndGyroSensor      u:object_r:sensors_device:s0
+# /vendor/factory points to persist; init restores labels after mounting it.
+/mnt/vendor/persist/(gsensor|gyrosensor)_[xyz]\.nv    u:object_r:vendor_picasso_inertial_cal_file:s0
 
 # Touch
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch-service\.picasso    u:object_r:hal_lineage_touch_default_exec:s0
