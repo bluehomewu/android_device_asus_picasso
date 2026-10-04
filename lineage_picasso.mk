@@ -20,6 +20,9 @@ PRODUCT_MANUFACTURER := asus
 PRODUCT_MODEL := ASUS_I007D
 PRODUCT_NAME := lineage_picasso
 
+# Keep the stock attestation identity while using picasso at runtime.
+PRODUCT_DEVICE_FOR_ATTESTATION := ASUS_I007_1
+
 PRODUCT_GMS_CLIENTID_BASE := android-asus
 
 PRODUCT_SYSTEM_DEVICE := $(PRODUCT_DEVICE)
