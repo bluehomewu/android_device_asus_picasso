@@ -40,6 +40,12 @@ lib_fixups: lib_fixups_user_type = {
     ): lib_fixup_vendor_suffix,
 }
 blob_fixups: blob_fixups_user_type = {
+    # These display blobs embed the pre-BP4A tinyxml2 XMLDocument layout.
+    (
+        'vendor/lib64/libdpps.so',
+        'vendor/lib64/libsnapdragoncolor-manager.so',
+    ): blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'system_ext/lib64/lib-imsvideocodec.so': blob_fixup()
         .add_needed('libgui_shim.so'),
     'vendor/lib64/hw/fingerprint.lahaina.so': blob_fixup()
