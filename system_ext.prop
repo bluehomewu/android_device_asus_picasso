@@ -18,5 +18,8 @@ ro.vendor.qti.va_aosp.support=1
 persist.vendor.sensors.enable.mag_filter=true
 
 # Telephony
+# The ASUS RIL defaults to disabling SA when this property is absent.
+# Allow both SA and NSA when NR is enabled by the selected network mode.
+persist.radio.tel.5g_sa_off=0
 ril.subscription.types=RUIM,RUIM
 ro.telephony.default_network=33,33
