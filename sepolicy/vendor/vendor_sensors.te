@@ -1,0 +1,2 @@
+# sscrpcd serves the factory accelerometer and gyroscope offsets to the DSP.
+allow vendor_sensors vendor_picasso_inertial_cal_file:file { getattr open read };

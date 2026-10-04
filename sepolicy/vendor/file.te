@@ -13,5 +13,8 @@ type vendor_proc_evt, fs_type, proc_type;
 # Fingerprint
 type vendor_proc_fingerprint, fs_type, proc_type;
 
+# Sensors
+type vendor_picasso_inertial_cal_file, file_type, vendor_persist_type;
+
 # Audio
 type vendor_sysfs_asuslib_audio, fs_type, sysfs_type;
