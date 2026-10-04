@@ -44,6 +44,8 @@ ro.hardware.fp_        u:object_r:vendor_fingerprint_prop:s0
 
 # Thermal
 vendor.asus.virtualtherm    u:object_r:vendor_thermal_prop:s0
+vendor.thermal.current.perf.conf    u:object_r:vendor_thermal_prop:s0 exact string
+vendor.thermal.engine.version       u:object_r:vendor_thermal_prop:s0 exact string
 
 # ZRAM
 persist.vendor.zram    u:object_r:vendor_mpctl_prop:s0
