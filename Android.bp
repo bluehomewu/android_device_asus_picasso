@@ -15,6 +15,9 @@ prebuilt_etc_xml {
     soc_specific: true,
 }
 
+// The stock QTI radio stack supplies the preferred 32-bit libril/librilutils
+// prebuilts without the AOSP headers. Exclude the unused reference RIL which
+// otherwise tries to consume those headers; this does not replace qcrilNrd.
 prebuilt_etc {
     name: "picasso-ril-overrides",
     src: "configs/ril/empty",

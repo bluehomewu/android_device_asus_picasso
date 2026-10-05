@@ -82,6 +82,7 @@ TARGET_SCREEN_DENSITY := 440
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Lineage Health
+# ASUS exposes charging suspend: 0 resumes charging, 1 suspends it.
 $(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/asuslib/charging_suspend_en)
 $(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
 $(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
@@ -207,6 +208,8 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 BOARD_KERNEL_IMAGE_NAME := Image
 KERNEL_CLANG_TRIPLE := CLANG_TRIPLE=aarch64-linux-gnu-
+# Preserve the known-booting compiler until a newer Clang is validated
+# independently of the planned kernel history rebase.
 TARGET_KERNEL_CLANG_VERSION := r416183b
 TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-$(TARGET_KERNEL_CLANG_VERSION))
 TARGET_KERNEL_ADDITIONAL_FLAGS := \

@@ -21,6 +21,7 @@ PRODUCT_MODEL := ASUS_I007D
 PRODUCT_NAME := lineage_picasso
 
 # Keep the stock attestation identity while using picasso at runtime.
+# gen_build_prop.py exports this for Build.DEVICE_FOR_ATTESTATION / KeyStore.
 PRODUCT_DEVICE_FOR_ATTESTATION := ASUS_I007_1
 
 PRODUCT_GMS_CLIENTID_BASE := android-asus
