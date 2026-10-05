@@ -57,11 +57,6 @@ blob_fixups: blob_fixups_user_type = {
                        '/system_ext/framework/vendor.qti.hardware.fingerprint-V1.0-java.jar'),
     'vendor/etc/msm_irqbalance.conf': blob_fixup()
         .regex_replace('IGNORED_IRQ=27,23,38$', 'IGNORED_IRQ=27,23,38,115,332'),
-    'vendor/etc/wifi/wpa_supplicant_overlay.conf': blob_fixup()
-        .regex_replace('^pmf=.*\n', '')
-        .regex_replace('^sae_pwe=.*\n', '')
-        .add_line_if_missing('pmf=1')
-        .add_line_if_missing('sae_pwe=2'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
