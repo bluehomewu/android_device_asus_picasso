@@ -6,21 +6,21 @@
 cc_library {
     name: "bootctrl.lahaina",
     defaults: ["bootctrl_hal_defaults"],
-    static_libs: ["libgptutils.picasso"],
+    static_libs: ["libgptutils.qti"],
 }
 
 cc_library_shared {
     name: "android.hardware.boot@1.1-impl-qti",
     stem: "android.hardware.boot@1.0-impl-1.1-qti",
     defaults: ["android.hardware.boot@1.1-impl-qti_defaults"],
-    static_libs: ["libgptutils.picasso"],
+    static_libs: ["libgptutils.qti"],
 }
 
 cc_binary {
     name: "android.hardware.boot-service.picasso",
     defaults: ["android.hardware.boot-service.qti.common"],
     init_rc: ["android.hardware.boot-service.picasso.rc"],
-    static_libs: ["libgptutils.picasso"],
+    static_libs: ["libgptutils.qti"],
     vendor: true,
 }
 
@@ -28,6 +28,6 @@ cc_binary {
     name: "android.hardware.boot-service.picasso.recovery",
     defaults: ["android.hardware.boot-service.qti.common"],
     init_rc: ["android.hardware.boot-service.picasso.recovery.rc"],
-    static_libs: ["libgptutils.picasso"],
+    static_libs: ["libgptutils.qti"],
     recovery: true,
 }
