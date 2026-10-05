@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: Apache-2.0
- * Copyright (C) 2026 The LineageOS Project
+ * SPDX-FileCopyrightText: The LineageOS Project
  */
 package org.lineageos.settings.picasso.nr;
 
