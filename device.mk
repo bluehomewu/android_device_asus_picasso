@@ -278,8 +278,7 @@ PRODUCT_COPY_FILES += \
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/qcom-caf/common/libqti-perfd-client \
-    kernel/asus/sm8350
+    hardware/qcom-caf/common/libqti-perfd-client
 
 # Networking
 PRODUCT_PACKAGES += \
