@@ -277,8 +277,10 @@ PRODUCT_COPY_FILES += \
 
 # Mountpoints
 PRODUCT_PACKAGES += \
+    vendor_asusfw_mountpoint \
     vendor_bt_firmware_mountpoint \
     vendor_dsp_mountpoint \
+    vendor_factory_symlink \
     vendor_firmware_mnt_mountpoint
 
 # Namespaces
