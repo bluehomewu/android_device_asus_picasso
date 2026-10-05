@@ -208,10 +208,6 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 BOARD_KERNEL_IMAGE_NAME := Image
 KERNEL_CLANG_TRIPLE := CLANG_TRIPLE=aarch64-linux-gnu-
-# Preserve the known-booting compiler until a newer Clang is validated
-# independently of the planned kernel history rebase.
-TARGET_KERNEL_CLANG_VERSION := r416183b
-TARGET_KERNEL_CLANG_PATH := $(abspath prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-$(TARGET_KERNEL_CLANG_VERSION))
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
     ASUS_BUILD_PROJECT=PICASSO \
     TARGET_BUILD_VARIANT=user
