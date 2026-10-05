@@ -334,13 +334,6 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     libprotobuf-cpp-lite-3.9.1-vendorcompat
 
-# QMI
-PRODUCT_PACKAGES += \
-    libcurl.vendor \
-    libjson \
-    libjsoncpp.vendor \
-    libsqlite.vendor
-
 # Security
 BOOT_SECURITY_PATCH := 2021-11-05
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
