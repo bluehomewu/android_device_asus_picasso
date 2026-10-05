@@ -4,3 +4,6 @@ ro.camera.res.fmq.size          u:object_r:vendor_camera_prop:s0
 
 # Display (Pixelworks)
 persist.sys.display.iris.absent    u:object_r:picasso_display_prop:s0 exact bool
+
+# ASUS RIL legacy SA override, shared only with the dedicated NR settings app.
+persist.radio.tel.5g_sa_off    u:object_r:picasso_nr_legacy_prop:s0 exact int

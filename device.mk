@@ -385,6 +385,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor \
     ims-ext-common \
     ims_ext_common.xml \
+    PicassoNrSettings \
     picasso-ril-overrides \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml \
@@ -394,6 +395,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-org.lineageos.settings.picasso.nr.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-org.lineageos.settings.picasso.nr.xml
 
 # Thermal
 PRODUCT_PACKAGES += \

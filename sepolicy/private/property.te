@@ -1,0 +1,2 @@
+# ASUS RIL legacy global SA override; no access to other radio properties.
+system_public_prop(picasso_nr_legacy_prop)

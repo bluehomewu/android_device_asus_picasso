@@ -1,2 +1,5 @@
 # Snapdragon logo LED
 type sysfs_aura_logo_led, fs_type, sysfs_type;
+
+# Picasso NR settings preferences, including device-protected storage.
+type picasso_nr_settings_data_file, file_type, data_file_type, core_data_file_type, app_data_file_type;

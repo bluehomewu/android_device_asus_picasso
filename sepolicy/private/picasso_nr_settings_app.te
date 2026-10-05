@@ -1,0 +1,19 @@
+# The platform-signed NR settings APK has its own UID and SELinux domain.
+type picasso_nr_settings_app, domain, coredomain;
+app_domain(picasso_nr_settings_app)
+
+# Keep per-subscription preferences separate from other privileged apps.
+allow picasso_nr_settings_app picasso_nr_settings_data_file:dir create_dir_perms;
+allow picasso_nr_settings_app picasso_nr_settings_data_file:file create_file_perms;
+
+# Standard app services, plus phone/isub. The registry is an app API service.
+allow picasso_nr_settings_app app_api_service:service_manager find;
+allow picasso_nr_settings_app radio_service:service_manager find;
+
+# Only this app becomes a client of the existing QTI radio HwBinder service.
+hwbinder_use(picasso_nr_settings_app)
+hal_client_domain(picasso_nr_settings_app, hal_telephony)
+
+# Neutralize the legacy global override when using per-SIM NR configuration.
+set_prop(picasso_nr_settings_app, picasso_nr_legacy_prop)
+get_prop(hal_telephony_server, picasso_nr_legacy_prop)
