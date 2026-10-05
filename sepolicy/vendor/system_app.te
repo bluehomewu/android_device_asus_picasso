@@ -1,0 +1,3 @@
+# PicassoParts controls the single-color rear Snapdragon logo LED.
+allow system_app sysfs_leds:dir search;
+allow system_app sysfs_aura_logo_led:file rw_file_perms;

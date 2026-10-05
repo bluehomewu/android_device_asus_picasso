@@ -7,6 +7,9 @@ type vendor_proc_camera, fs_type, proc_type;
 # Display
 type vendor_proc_graphics, fs_type, proc_type;
 
+# Snapdragon logo LED
+type sysfs_aura_logo_led, fs_type, sysfs_type;
+
 # EVT
 type vendor_proc_evt, fs_type, proc_type;
 

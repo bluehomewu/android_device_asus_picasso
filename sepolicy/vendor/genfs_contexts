@@ -36,6 +36,18 @@ genfscon sysfs /devices/virtual/sensors    u:object_r:vendor_sysfs_sensors:s0
 # Touch
 genfscon sysfs /devices/platform/soc/990000.i2c/i2c-1/1-0038/fts_phone_state    u:object_r:vendor_sysfs_touch:s0
 
+# Snapdragon logo LED
+genfscon sysfs /class/leds/aura_sync/led_on    u:object_r:sysfs_aura_logo_led:s0
+genfscon sysfs /class/leds/aura_sync/VDD       u:object_r:sysfs_aura_logo_led:s0
+genfscon sysfs /class/leds/aura_sync/mode2     u:object_r:sysfs_aura_logo_led:s0
+genfscon sysfs /class/leds/aura_sync/speed     u:object_r:sysfs_aura_logo_led:s0
+genfscon sysfs /class/leds/aura_sync/apply     u:object_r:sysfs_aura_logo_led:s0
+genfscon sysfs /devices/platform/soc/980000.i2c/i2c-0/0-0016/leds/aura_sync/led_on    u:object_r:sysfs_aura_logo_led:s0
+genfscon sysfs /devices/platform/soc/980000.i2c/i2c-0/0-0016/leds/aura_sync/VDD       u:object_r:sysfs_aura_logo_led:s0
+genfscon sysfs /devices/platform/soc/980000.i2c/i2c-0/0-0016/leds/aura_sync/mode2     u:object_r:sysfs_aura_logo_led:s0
+genfscon sysfs /devices/platform/soc/980000.i2c/i2c-0/0-0016/leds/aura_sync/speed     u:object_r:sysfs_aura_logo_led:s0
+genfscon sysfs /devices/platform/soc/980000.i2c/i2c-0/0-0016/leds/aura_sync/apply     u:object_r:sysfs_aura_logo_led:s0
+
 # Thermal
 genfscon sysfs /class/asuslib/set_virtualthermal    u:object_r:sysfs_thermal:s0
 genfscon sysfs /devices/virtual/asuslib/set_virtualthermal    u:object_r:sysfs_thermal:s0
@@ -44,6 +56,5 @@ genfscon sysfs /devices/virtual/asuslib/set_virtualthermal    u:object_r:sysfs_t
 genfscon sysfs /devices/platform/soc/998000.i2c/i2c-2/2-005a    u:object_r:sysfs_vibrator:s0
 
 # Wakeup
-
 genfscon sysfs /devices/platform/soc/884000.i2c/i2c-4/4-0028/wakeup                                                                 u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/894000.i2c/i2c-6/6-0068/wakeup                                                                 u:object_r:sysfs_wakeup:s0
