@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="nr_title">5G SA／NSA 模式</string>
+    <string name="nr_summary">分别设置每张 SIM 的 5G 模式</string>
+    <string name="nr_combined">SA＋NSA（推荐）</string>
+    <string name="nr_nsa">仅 NSA</string>
+    <string name="nr_sa">仅 SA</string>
+    <string name="nr_explanation">这些选项只决定 5G 连接类型，不会更改首选网络类型；LTE 及其他允许的网络仍可使用。SA 需要运营商与 SIM 支持，此设置不会启用 VoNR。</string>
+    <string name="nr_no_sim">没有已启用的 SIM。请插入或启用 SIM，再设置其 5G 模式。</string>
+    <string name="nr_owner_only">只有设备所有者可以设置 SIM 无线电模式。</string>
+    <string name="nr_sim_title">SIM %1$d · %2$s</string>
+    <string name="nr_sim_generic">移动网络</string>
+    <string name="nr_sa_warning_title">此 SIM 仅使用 SA？</string>
+    <string name="nr_sa_warning">将不使用 NSA。若没有兼容的 SA 覆盖，可能回落到 LTE 或其他允许的网络。这不保证能注册 SA 或使用 VoNR。</string>
+    <string name="nr_apply">应用</string>
+    <string name="nr_unavailable">无法设置无线电：%1$s</string>
+    <string name="nr_readback_note">选择的偏好与 HAL／RIL 读回的设置分开显示。读回值可能来自 RIL 缓存；数值相符不代表 modem 已实际应用，也不证明此 SIM 已注册到 5G SA 网络。</string>
+    <string name="nr_back">返回</string>
+    <string name="nr_airplane">请先关闭飞行模式，再更改 5G 偏好。</string>
+    <string name="nr_restricted">移动网络设置受到限制。</string>
+    <string name="nr_initializing">正在加载偏好…</string>
+    <string name="nr_desired">选择的偏好：%1$s</string>
+    <string name="nr_verified">HAL／RIL 最后读回的设置：%1$s</string>
+    <string name="nr_unknown">暂无数据</string>
+    <string name="nr_waiting">等待无线电后端，尚未确认。</string>
+    <string name="nr_querying">正在读取 HAL／RIL 设置…</string>
+    <string name="nr_setting">正在发送偏好，尚未确认。</string>
+    <string name="nr_verifying">正在核对 HAL／RIL 读回的设置…</string>
+    <string name="nr_applied">偏好与 HAL／RIL 读回的设置相符。</string>
+    <string name="nr_failed">尚未确认：%1$s</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <!-- Match Material3's dynamic surface before the first Compose frame. -->
+    <color name="nr_surface">@android:color/system_surface_light</color>
+    <style name="Theme.PicassoNr" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/nr_surface</item>
+        <item name="android:colorBackground">@color/nr_surface</item>
+        <item name="android:windowSplashScreenBackground">@color/nr_surface</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="nr_title">5G SA / NSA modes</string>
+    <string name="nr_summary">Choose a 5G mode for each SIM</string>
+    <string name="nr_combined">SA + NSA (recommended)</string>
+    <string name="nr_nsa">NSA only</string>
+    <string name="nr_sa">SA only</string>
+    <string name="nr_explanation">These options select the type of 5G connection, not the preferred network type. LTE and other permitted networks remain available. SA requires carrier and SIM support; these settings do not enable VoNR.</string>
+    <string name="nr_no_sim">No active SIM. Insert or enable a SIM to configure its 5G mode.</string>
+    <string name="nr_owner_only">Only the device owner can configure SIM radio modes.</string>
+    <string name="nr_sim_title">SIM %1$d · %2$s</string>
+    <string name="nr_sim_generic">Mobile network</string>
+    <string name="nr_sa_warning_title">Use SA only for this SIM?</string>
+    <string name="nr_sa_warning">NSA will not be used. Without compatible SA coverage you may fall back to LTE or another allowed network. This does not guarantee SA registration or VoNR.</string>
+    <string name="nr_apply">Apply</string>
+    <string name="nr_unavailable">Radio configuration unavailable: %1$s</string>
+    <string name="nr_readback_note">The selected preference and the HAL/RIL configuration readback are shown separately. The readback may come from a RIL cache; a matching value does not prove modem application or 5G SA registration.</string>
+    <string name="nr_back">Back</string>
+    <string name="nr_airplane">Turn off airplane mode to change the 5G preference.</string>
+    <string name="nr_restricted">Mobile network configuration is restricted.</string>
+    <string name="nr_initializing">Loading the preference…</string>
+    <string name="nr_desired">Selected preference: %1$s</string>
+    <string name="nr_verified">Last HAL/RIL configuration readback: %1$s</string>
+    <string name="nr_unknown">Not available</string>
+    <string name="nr_waiting">Waiting for the radio backend. Not confirmed.</string>
+    <string name="nr_querying">Reading the HAL/RIL configuration…</string>
+    <string name="nr_setting">Sending the preference. Not yet confirmed.</string>
+    <string name="nr_verifying">Checking the HAL/RIL configuration readback…</string>
+    <string name="nr_applied">Preference matches the HAL/RIL configuration readback.</string>
+    <string name="nr_failed">Not confirmed: %1$s</string>
+</resources>

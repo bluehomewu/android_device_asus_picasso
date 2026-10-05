@@ -1,0 +1,22 @@
+// Copyright (C) 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+android_app {
+    name: "PicassoNrSettings",
+    srcs: ["src/**/*.java", "src/**/*.kt"],
+    resource_dirs: ["res"],
+    certificate: "platform",
+    platform_apis: true,
+    privileged: true,
+    system_ext_specific: true,
+    static_libs: [
+        "androidx.activity_activity-compose",
+        "androidx.compose.foundation_foundation",
+        "androidx.compose.foundation_foundation-layout",
+        "androidx.compose.material_material-icons-core",
+        "androidx.compose.material3_material3",
+        "androidx.compose.runtime_runtime",
+        "androidx.compose.ui_ui",
+        "androidx.core_core-ktx",
+    ],
+    kotlincflags: ["-Xjvm-default=all"],
+}

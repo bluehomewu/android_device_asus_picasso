@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <color name="nr_surface">@android:color/system_surface_dark</color>
+    <style name="Theme.PicassoNr" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/nr_surface</item>
+        <item name="android:colorBackground">@color/nr_surface</item>
+        <item name="android:windowSplashScreenBackground">@color/nr_surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>
