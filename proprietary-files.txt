@@ -1782,12 +1782,16 @@ vendor/firmware/hdcpsrm.mdt
 
 # WLAN
 vendor/bin/cnss-daemon
-vendor/etc/wifi/p2p_supplicant_overlay.conf|05f22cd82cbe806d46185a3e5ce69c86cd307128
-vendor/etc/wifi/vendor_cmd.xml|b984ecbb79d2ca0b789274fce3fde793b41d3dc6
+vendor/etc/wifi/p2p_supplicant_overlay.conf
+vendor/etc/wifi/vendor_cmd.xml
+# ASUS sake WCNSS config: 6 GHz TPE handling and wlan_mac.bin MAC sourcing.
+# Keep this external-source pin; see commit be6f88a134e0c3ddb2516d2e72b35a24df4b2c8f.
 vendor/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini|ec6df2ef5a135b2fc6dd7f6371000b61476feba8
 vendor/firmware/Data.msc
 vendor/firmware/amss.bin
 vendor/firmware/m3.bin
+# Keep Picasso's stock regdb paired with its WLAN firmware. The sake regdb
+# caused calibration-time WLAN RDDM; see commit be6f88a134e0c3ddb2516d2e72b35a24df4b2c8f.
 vendor/firmware/regdb.bin|a250b0b5a76eebc13f8f893b93c60dd367c8ca12
 
 # Widevine
