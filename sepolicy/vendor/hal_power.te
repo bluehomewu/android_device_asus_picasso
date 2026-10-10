@@ -1,1 +1,5 @@
 allow hal_power vendor_proc_graphics:file w_file_perms;
+
+# PowerHintSession queries supported refresh rates through DisplayConfig AIDL.
+allow hal_power_default vendor_hal_vnddisplayconfig_service:service_manager find;
+binder_call(hal_power_default, hal_graphics_composer_default)

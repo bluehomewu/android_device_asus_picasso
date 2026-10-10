@@ -13,6 +13,7 @@ vendor.battery.status.ICcheck    u:object_r:vendor_battery_prop:s0
 vendor.drm.keystatus    u:object_r:vendor_display_prop:s0
 
 # Display (Pixelworks)
+vendor.asus.tel.antenna    u:object_r:vendor_asus_antenna_prop:s0 exact string
 
 # GPS
 persist.vendor.asus.agps.    u:object_r:vendor_gps_prop:s0

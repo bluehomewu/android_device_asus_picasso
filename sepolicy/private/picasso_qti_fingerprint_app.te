@@ -1,0 +1,5 @@
+# Keep QFingerprintService's direct HAL access specific to its package.
+type picasso_qti_fingerprint_app, domain, coredomain;
+app_domain(picasso_qti_fingerprint_app)
+platform_app_domain(picasso_qti_fingerprint_app)
+hal_client_domain(picasso_qti_fingerprint_app, hal_fingerprint)

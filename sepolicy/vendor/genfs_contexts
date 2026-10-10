@@ -58,3 +58,15 @@ genfscon sysfs /devices/platform/soc/998000.i2c/i2c-2/2-005a    u:object_r:sysfs
 # Wakeup
 genfscon sysfs /devices/platform/soc/884000.i2c/i2c-4/4-0028/wakeup                                                                 u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/894000.i2c/i2c-6/6-0068/wakeup                                                                 u:object_r:sysfs_wakeup:s0
+
+# Wakeup sources reported by the Picasso kernel; do not label the wakeupN index.
+genfscon sysfs /devices/platform/soc/abb0000.qcom,evass/subsys0/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,trustedvm@d0800000/subsys1/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/98900000.qcom,turing/subsys3/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/188101c.qcom,spss/subsys4/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/17300000.qcom,lpass/subsys5/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/5c00000.qcom,ssc/subsys6/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/4080000.qcom,mss/subsys7/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,ipa_fws/subsys8/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/984000.spi/spi_master/spi0/spi0.0/wakeup    u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/884000.i2c/i2c-4/4-0029/wakeup    u:object_r:sysfs_wakeup:s0

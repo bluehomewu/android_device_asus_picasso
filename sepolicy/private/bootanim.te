@@ -1,0 +1,2 @@
+# BootAnimation selects the animation using persist.sys.theme.
+get_prop(bootanim, theme_prop)
