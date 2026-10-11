@@ -977,7 +977,7 @@ vendor/lib64/libfastcvopt.so
 
 # Fingerprint
 system_ext/framework/vendor.qti.hardware.fingerprint-V1.0-java.jar
-vendor/app/QFingerprintService/QFingerprintService.apk
+vendor/app/QFingerprintService/QFingerprintService.apk:system_ext/app/QFingerprintService/QFingerprintService.apk
 vendor/bin/LightFingerprintPosition.sh
 vendor/bin/qfp-daemon
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
