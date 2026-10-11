@@ -1,0 +1,75 @@
+{
+  "source_repository": "https://github.com/QRD-Development/wlan_lahaina",
+  "source_commit": "4cb88705e31ec0fa33abff48d97a6e9b89fbec6d",
+  "source_tag": "WLAN.HSP.1.1-04465-QCAHSPSWPL_V1_V2_SILICONZ-2",
+  "source_description": "Unmodified BSP database, byte-identical to the matching supplied NON-HLOS image. Use as the initial 04465 firmware stability baseline.",
+  "board_data": {
+    "template_version": "5.3.32",
+    "board_id": "0x47",
+    "previous_active_sha256": "ca933f8550a6a4a74a2172694d62603c38b35bb77053a8a25da68653009cecb5",
+    "previous_active_source": "01651 BSP / ASUS modem bdwlan.e47, verified by device readback",
+    "selection": "Install the matching 04465 BDF in /vendor/firmware so the kernel direct loader selects it before the old modem fallback.",
+    "reason": "The new firmware interprets NV section 21 as 6 GHz CTL tables; the old 01651 BDF uses that section for an embedded regulatory database.",
+    "unchanged_raw_sections": 28
+  },
+  "compatibility": {
+    "silicon": "QCA6490 V1; use amss.bin, not amss20.bin",
+    "regdb_reader_bytes": 24278,
+    "previous_firmware_reader_bytes": 19348,
+    "pairing_required": "Use the 04465 amss, M3, board data and RegDB together; do not combine this database with 01722 firmware.",
+    "host_configuration": "Existing kernel, cnss-daemon and Wi-Fi configuration retained."
+  },
+  "tw": {
+    "2g_5g": "Unmodified BSP 39.0 rules. The earlier custom1 exception is not included in this baseline.",
+    "6g": "Not enabled: max_bw_6g and super_dmn_6g_id are zero."
+  },
+  "validation": {
+    "matching_layout_decoded": true,
+    "byte_exact_roundtrip": true,
+    "xor_all_uint16": 65535,
+    "countries_resolved": 201,
+    "device_runtime_tested": false
+  },
+  "next_stage": "After confirming device stability with the matched 39.0 bundle, evaluate RegDB 44.2 separately. Keep any custom1 rule changes as a separate step.",
+  "files": {
+    "amss.bin": {
+      "source_path": "config/bsp/cnss_ram_v1_TO_link_patched/build/6490.wlanfw.eval_v1_TO/amss.bin",
+      "size_bytes": 5478176,
+      "sha256": "7d53cf0b0756a61b242624587355ead21eaabb5e4ed14f1943916ddbcbb448a1",
+      "sha1": "d15dfa6582f33ef09674e30bef6675fdbd616d27",
+      "install_path": "/vendor/firmware/amss.bin"
+    },
+    "m3.bin": {
+      "source_path": "wlan/subsys/phyucode_binary/hsp/m3.bin",
+      "size_bytes": 266684,
+      "sha256": "7156755a7276b81c14683923277407c12702eea2ffc5b3a9716cda88880714ef",
+      "sha1": "9fc8f9aaa5d22ded4720675079067335c1452e52",
+      "install_path": "/vendor/firmware/m3.bin"
+    },
+    "Data.msc": {
+      "source_path": "config/bsp/cnss_ram_v1_TO_link_patched/build/6490.wlanfw.eval_v1_TO/Data.msc",
+      "size_bytes": 892599,
+      "sha256": "b5c66d2b7777bbb3b43fa4228b2514ce16eeb5c807dc02280ae71d96b041a9a4",
+      "sha1": "99ed6490d06177b4965e68892a53854f38a3d2e6",
+      "install_path": "/vendor/firmware/Data.msc"
+    },
+    "bdwlan.e47": {
+      "source_path": "wlan/phyrf_svc/tools/bdfUtil/device/bdf/qca649x/bdwlan.e47",
+      "size_bytes": 59932,
+      "sha256": "b6b2157e7a9685825716c8bbad89e931b3332c952612c16ea8cd745a76a34de4",
+      "sha1": "833c6c15d080667c82d585113c1acb4d06023d8d",
+      "install_path": "/vendor/firmware/bdwlan.e47"
+    },
+    "regdb.bin": {
+      "source_path": "wlan/phyrf_svc/tools/bdfUtil/device/bdf/qca649x/regdb.bin",
+      "size_bytes": 24278,
+      "sha256": "0150a2fc15705086a80582af26ce1adc66b22c898b52df05fa698c31c0854dc6",
+      "sha1": "0d62c546735c2ef951308d135a7bc564fbc55f4d",
+      "install_path": "/vendor/firmware/regdb.bin"
+    }
+  },
+  "regdb_version": {
+    "major": 39,
+    "minor": 0
+  }
+}

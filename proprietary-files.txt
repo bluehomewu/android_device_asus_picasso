@@ -1787,12 +1787,13 @@ vendor/etc/wifi/vendor_cmd.xml
 # ASUS sake WCNSS config: 6 GHz TPE handling and wlan_mac.bin MAC sourcing.
 # Keep this external-source pin; see commit be6f88a134e0c3ddb2516d2e72b35a24df4b2c8f.
 vendor/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini|ec6df2ef5a135b2fc6dd7f6371000b61476feba8
-vendor/firmware/Data.msc
-vendor/firmware/amss.bin
-vendor/firmware/m3.bin
-# Keep Picasso's stock regdb paired with its WLAN firmware. The sake regdb
-# caused calibration-time WLAN RDDM; see commit be6f88a134e0c3ddb2516d2e72b35a24df4b2c8f.
-vendor/firmware/regdb.bin|a250b0b5a76eebc13f8f893b93c60dd367c8ca12
+# Matched WLAN.HSP.1.1-04465-QCAHSPSWPL_V1_V2_SILICONZ-2 V1 firmware.
+# Keep these BSP pins together; RegDB 39.0 is the initial stability baseline.
+vendor/firmware/Data.msc|99ed6490d06177b4965e68892a53854f38a3d2e6
+vendor/firmware/amss.bin|d15dfa6582f33ef09674e30bef6675fdbd616d27
+vendor/firmware/bdwlan.e47|833c6c15d080667c82d585113c1acb4d06023d8d
+vendor/firmware/m3.bin|9fc8f9aaa5d22ded4720675079067335c1452e52
+vendor/firmware/regdb.bin|0d62c546735c2ef951308d135a7bc564fbc55f4d
 
 # Widevine
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine
